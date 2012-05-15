@@ -1,23 +1,15 @@
-\documentclass{book}
+\documentclass[oneside]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[english,bulgarian]{babel}
 \usepackage{authblk}
 
-\title{Оптимизиране на транспортната мрежа в град Пловдив}
-\date{3 Юли 2012 г.}
-\author{Венелин Вълков}
-\affil{Пловдивски Университет - ФМИ}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 
 \begin{document}
-
-\maketitle
-
+\input{src/title-page}
 \tableofcontents
-
-\setcounter{page}{1}
 \input{src/intro}
 \input{src/explanation}
 \input{src/conclusion}
-\bibliographystyle{abstract}
-\bibliography{references}
+\input{src/references}
 \end{document}
