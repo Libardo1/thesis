@@ -43,38 +43,68 @@
 		данни от протичане на симулацията.		
 		
 		
-			\begin{figure} 
+		\begin{figure} 
 				\caption{Модел на симулационната система}
-		\begin{center}		
-			
-		
-		
-		
-		\begin{tikzpicture}[scale=2, node distance = 4cm, auto]
-		    % Place nodes
-		    \node [start] (init) {Начало};
-		    \node [block, below of=init, node distance = 5cm] (load-settings) {Зареждане на настройки};
-		    \node [block, right of=load-settings, node distance = 5cm] (next-step) {Преминаване към следващо състояние};
-		    \node [block, below of=next-step, node distance = 3cm] (draw-current-state) {Изобразяване на текущото състояние};
-		    \node [decision, below of=draw-current-state, node distance = 4cm] (is-end) {Приключила ли е симулацията?};
-		    \node [block, below of=is-end] (results) {Показване на крайните резултати};
-		    \node [exit, left of=results, node distance = 5cm] (end) {Край};
-		    % Draw edges
-		    \path [line] (init)               -- (load-settings);
-		    \path [line] (load-settings)      -- (next-step);
-		    \path [line] (next-step)          -- (draw-current-state);
-		    \path [line] (draw-current-state) -- (is-end);
-		    \path [line] (is-end.east)        |- node[above right] {Не} (next-step.east);
-		    \path [line] (is-end)             -- node[midway] {Да} (results);
-		    \path [line] (results)            -- (end);
-		\end{tikzpicture}	
+				\begin{center}
+				
+					\begin{tikzpicture}[scale=2, node distance = 4cm, auto]
+					    % Place nodes
+					    \node [start] (init) {Начало};
+					    \node [block, below of=init, node distance = 5cm] (load-settings) {Зареждане на настройки};
+					    \node [block, right of=load-settings, node distance = 5cm] (next-step) {Преминаване към следващо състояние};
+					    \node [block, below of=next-step, node distance = 3cm] (draw-current-state) {Изобразяване на текущото състояние};
+					    \node [decision, below of=draw-current-state, node distance = 4cm] (is-end) {Приключила ли е симулацията?};
+					    \node [block, below of=is-end] (results) {Показване на крайните резултати};
+					    \node [exit, left of=results, node distance = 5cm] (end) {Край};
+					    % Draw edges
+					    \path [line] (init)               -- (load-settings);
+					    \path [line] (load-settings)      -- (next-step);
+					    \path [line] (next-step)          -- (draw-current-state);
+					    \path [line] (draw-current-state) -- (is-end);
+					    \path [line] (is-end.east)        |- node[above right] {Не} (next-step.east);
+					    \path [line] (is-end)             -- node[midway] {Да} (results);
+					    \path [line] (results)            -- (end);
+					\end{tikzpicture}	
 			
 			\end{center}	
+			
 		\end{figure}						
 		\newpage
 	
 	\subsection{Компоненти на симулацията}		
 	\subsection{Избор на технология и програмен език}
 		\subsubsection{Света на Lua}
+		
+			Lua е малък скриптов език, който кара да се усмихнеш, когато го използваш. 
+			Според авторите му той е: \footnote{\url{http://www.lua.org/about.html}} 
+			
+			\begin{itemize}
+				\item Бърз
+				\item Лек
+				\item Лесен за вграджане (embeddable)
+				\item Доказан
+			\end{itemize}
+			
+			Той е напълно безплатен за употреба. Разпространява се под 
+			\emph{MIT}\footnote{\url{http://www.opensource.org/licenses/mit-license.php}} лиценз. 
+			Доказал се е като добър избор за скриптов език за множество комерсиални 
+			игри\footnote{\url{http://en.wikipedia.org/wiki/Category:Lua-scripted_video_games}}.
+			
+			Автори на езика са Roberto Ierusalimschy, Waldemar Celes и Luiz Henrique de Figueiredo. Те разработват езика в
+			университета PUC-Rio\footnote{\url{http://www.puc-rio.br/index.html}}, като част от нуждите за тяхната група
+			от технологии за компютърна графика. 
+			
+			Името на езика идва от португалската дума Lua, която означава "Луна".
+			
+			Lua е смесица между обектно-ориентиран, функционален и програмиране свързано с данни (data-driven development)
+			подход към създаването на програми. Има лесен за научаване синтаксис и сравнително малък брой концепции. 
+			
+			Имплементиран е като библиотека за програмния език \emph{C}\footnote{\url{http://en.wikipedia.org/wiki/C_(programming_language)}}. 
+			Поради тази причина, той няма концепция за "основна програма" (main program). Нуждае се от приемник (host), който извиква различни
+			части от код, написан на \emph{Lua}.
+			
+			С помощта на \emph{C} функции, \emph{Lua} може да бъде пригоден за работа в различни, непредвидени от авторите му,
+			области и споделя вече съществуващия синтаксис.		
+		
 		\subsubsection{Нужда от по-висока абстракция}
 	\subsection{Програмиране на системата}
