@@ -104,7 +104,27 @@
 			части от код, написан на \emph{Lua}.
 			
 			С помощта на \emph{C} функции, \emph{Lua} може да бъде пригоден за работа в различни, непредвидени от авторите му,
-			области и споделя вече съществуващия синтаксис.		
+			области и споделя вече съществуващия синтаксис.
+			
+			\emphparagraph{Концепции}
+				Lua е динамично типизиран език (dynamically typed), което означава, че само стойностите имат тип.
+				
+				\lstinputlisting[title=Променливи]{code/variables.lua}				
+				\lstinputlisting[title=Изход]{code/variables.output}
+				
+				Има концепция за прихващане на грешките, която много се доближава до тази на изключенията от езици като
+				C++ и Java.
+				
+				\lstinputlisting[title=Грешки]{code/errors.lua}
+				\lstinputlisting[title=Изход]{code/errors.output}
+				
+				\newpage
+				
+				Езикът предоставя и съвместни програми (coroutines). Съвместна програма в Lua представлява изпълнение на независима нишка.
+				
+				\lstinputlisting[title=Съвместни програми]{code/coroutines.lua}
+				
+				\lstinputlisting[title=Изход]{code/coroutines.output}
 		
 		\subsubsection{Нужда от по-висока абстракция}
 	\subsection{Програмиране на системата}
