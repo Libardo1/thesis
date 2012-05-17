@@ -111,22 +111,22 @@
 			\emphparagraph{Концепции}
 				Lua е динамично типизиран език (dynamically typed), което означава, че само стойностите имат тип.
 				
-				\lstinputlisting[title=Променливи]{code/variables.lua}				
-				\lstinputlisting[title=Изход]{code/variables.output}
+				\lstinputlisting[title=Променливи]{code/lua/variables.lua}				
+				\lstinputlisting[title=Изход]{code/lua/variables.output}
 				
 				Има концепция за прихващане на грешките, която много се доближава до тази на изключенията от езици като
 				C++ и Java.
 				
-				\lstinputlisting[title=Грешки]{code/errors.lua}
-				\lstinputlisting[title=Изход]{code/errors.output}
+				\lstinputlisting[title=Грешки]{code/lua/errors.lua}
+				\lstinputlisting[title=Изход]{code/lua/errors.output}
 				
 				\newpage
 				
 				Езикът предоставя и съвместни програми (coroutines). Съвместна програма в Lua представлява изпълнение на независима нишка.
 				
-				\lstinputlisting[title=Съвместни програми]{code/coroutines.lua}
+				\lstinputlisting[title=Съвместни програми]{code/lua/coroutines.lua}
 				
-				\lstinputlisting[title=Изход]{code/coroutines.output}
+				\lstinputlisting[title=Изход]{code/lua/coroutines.output}
 				
 				\newpage
 				
@@ -135,19 +135,19 @@
 				\emph{JavaScript}\footnote{\url{http://www.crockford.com/javascript/inheritance.html}}.
 				Това позволява на всеки разработчик да създаде свой, собствен стил на писане на класове. Това може да е добро и лошо нещо.
 				
-				\lstinputlisting[title=Класове]{code/classes.lua}
+				\lstinputlisting[title=Класове]{code/lua/classes.lua}
 				
-				\lstinputlisting[title=Изход]{code/classes.output}				
+				\lstinputlisting[title=Изход]{code/lua/classes.output}				
 		
 		\subsubsection{Нужда от по-висока абстракция}
 		
 			Lua е прекрасен малък език, но сам по себе си, той не доставя необходимите инструменти
-			за лесно създаване на симулационна система. Намирането на библиотека предоставяща по-висока
+			за лесно създаване на симулационна система. Намиране на библиотека предоставяща по-висока
 			абстракция е задължително.
 			
 			Една такава библиотека е \emph{Moai}\footnote{\url{http://getmoai.com/}} (произнася се Moe-Eye).
 			Тя е по-скоро двигател за игри (game engine).
-			Разработката й е започнала през 2010г. и е активно разработвана до днес. 
+			Разработката й е започнала през 2010г. и е активно разработвана и до днес. 
 			Тя е с \emph{отворен код}\footnote{\url{http://github.com/moai/moai-dev}}
 			и използва лицензът \emph{CPAL}\footnote{\url{http://www.opensource.org/licenses/cpal_1.0}}, който
 			позволява да използваме софтуера за нашите цели. 
@@ -161,6 +161,26 @@
 			\footnote{\url{http://en.wikipedia.org/wiki/Objective-C}} за \emph{iPhone}.
 
 			Обеткният модел на \emph{Moai} е изцяло написан на \emph{C++} и използва префикс "MOAI". Тези обекти
-			се изчистват от \ac{GC}, също както и тези в \emph{Lua}.
+			се изчистват от \ac{GC}, също както и тези в \emph{Lua}. За това спомагат и т.нар. контейнери в \emph{Moai},
+			които се грижат да не останат неизчистени обекти от паметта.
+			
+			\newpage			
+			
+			Програма, изписваща на екрана \quote{Hello from Moai}, излежда така:
+			
+			\lstinputlisting[title=Здравей Moai]{code/moai/hello-moai.lua}			
+			
+			Когато програмата се изпълни, на екрана се визуализира фиг. \ref{figure:hello-moai}
+			
+			\begin{figure} 
+				\caption{Резултат изпълнението на първата програма на \emph{Moai}}
+				\label{figure:hello-moai}
+					\begin{center}
+						\includegraphics{assets/images/hello-moai.png}				
+					\end{center}
+			\end{figure}
+			
+			\newpage
+
 			
 	\subsection{Програмиране на системата}
