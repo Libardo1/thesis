@@ -40,7 +40,38 @@
 		При стартиране на системата, тя ще изисква от потребителя да въведе необходимите данни за 
 		стартиране на симулация. Когато тя започне, на потребителя се дава възможност визуално
 		да наблюдава симулацията на всяка своя стъпка. След приключването й, се предоставят
-		данни от протичане на симулацията.
+		данни от протичане на симулацията.		
+		
+		
+			\begin{figure} 
+				\caption{Модел на симулационната система}
+		\begin{center}		
+			
+		
+		
+		
+		\begin{tikzpicture}[scale=2, node distance = 4cm, auto]
+		    % Place nodes
+		    \node [start] (init) {Начало};
+		    \node [block, below of=init, node distance = 5cm] (load-settings) {Зареждане на настройки};
+		    \node [block, right of=load-settings, node distance = 5cm] (next-step) {Преминаване към следващо състояние};
+		    \node [block, below of=next-step, node distance = 3cm] (draw-current-state) {Изобразяване на текущото състояние};
+		    \node [decision, below of=draw-current-state, node distance = 4cm] (is-end) {Приключила ли е симулацията?};
+		    \node [block, below of=is-end] (results) {Показване на крайните резултати};
+		    \node [exit, left of=results, node distance = 5cm] (end) {Край};
+		    % Draw edges
+		    \path [line] (init)               -- (load-settings);
+		    \path [line] (load-settings)      -- (next-step);
+		    \path [line] (next-step)          -- (draw-current-state);
+		    \path [line] (draw-current-state) -- (is-end);
+		    \path [line] (is-end.east)        |- node[above right] {Не} (next-step.east);
+		    \path [line] (is-end)             -- node[midway] {Да} (results);
+		    \path [line] (results)            -- (end);
+		\end{tikzpicture}	
+			
+			\end{center}	
+		\end{figure}						
+		\newpage
 	
 	\subsection{Компоненти на симулацията}		
 	\subsection{Избор на технология и програмен език}
