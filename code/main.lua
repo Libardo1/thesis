@@ -34,34 +34,34 @@ layer = MOAILayer2D.new()
 layer:setViewport(viewport)
 MOAISim.pushRenderPass(layer)
 
-penguinGfx = MOAIGfxQuad2D.new()
-penguinGfx:setTexture(imagePathFor("car.png"))
-penguinGfx:setRect(-96, -96, 96, 96)
+carGfx = MOAIGfxQuad2D.new()
+carGfx:setTexture(imagePathFor("car.png"))
+carGfx:setRect(-96, -96, 96, 96)
 
 function makeCar(x, y, targetX, targetY, orientation)
-	local penguin = MOAIProp2D.new()
-	penguin:setDeck(penguinGfx)
-	layer:insertProp(penguin)
-	penguin:setLoc(x, y)
+	local car = MOAIProp2D.new()
+	car:setDeck(carGfx)
+	layer:insertProp(car)
+	car:setLoc(x, y)
 	
-	function penguin:main()
+	function car:main()
 		MOAICoroutine.blockOnAction(self:seekLoc(targetX, targetY, 1, MOAIEaseType.LINEAR))
 		layer:removeProp(self)
 	end
 	
-	function penguin:go()
+	function car:go()
 		thread = MOAICoroutine.new()
 		thread:run(self.main, self)
 	end
 	
 	if orientation == LEFT then
-		penguin:addRot(90, 0)
+		car:addRot(90, 0)
 	elseif orientation == RIGHT then
-		penguin:addRot(-90, 0)
+		car:addRot(-90, 0)
 	elseif orientation == DOWN then
-		penguin:addRot(180, 0)
+		car:addRot(180, 0)
 	end
-	return penguin
+	return car
 end
 
 function makeTimerBox(x, y)
