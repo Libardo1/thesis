@@ -1,6 +1,7 @@
 *.aux
 *.glo
 *.idx
+*.loa
 *.log
 *.toc
 *.ist

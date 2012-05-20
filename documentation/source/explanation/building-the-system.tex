@@ -305,3 +305,21 @@
 						\end{tikzpicture}
 					\end{center}
 			\end{figure}
+			
+			\newpage			
+			
+			Описаният по-горе ``часовник``, като компонент на симулацията, базира времето си
+			на изминалите кадри. Това е така, защото не е ясно дали компютърната система
+			на която тече симулацията може да поддържа оптимилания брой кадри за секунда.
+			Алгоритъмът е показан на алг. \ref{algorithm:elapsed-seconds}.
+			
+			\begin{algorithm}				
+				\caption{Засичане на изминало време в симулацията}				
+				\label{algorithm:elapsed-seconds}
+				\begin{algorithmic}
+					\If {$frames \bmod 60 = 0$}
+						\State $seconds\gets seconds+1$
+						\State $notifySystemTimeChange(seconds)$
+					\EndIf
+				\end{algorithmic}
+			\end{algorithm}			
