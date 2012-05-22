@@ -1,4 +1,4 @@
-\section{Създаване на симулационна система}
+\section{Моделиране}
 	
 	След анализът върху съществуващите симулационни системи изглежда, че
 	система която да реши поставените проблеми, не съществува.
@@ -8,74 +8,72 @@
 	Под голям въпрос е и качеството на документацията, както и състоянието на
 	наличните примери и качество на кода. Това оставя възможността да бъде разгледан
 	един нетрадиционен вариант за решаване на такъв проблем.
-
-	\subsection{Модел}
 	
-		За създаването на нашият модел и цялостната програма ще се използва итеративен подход \cite{ArtOfAgile}.
-		Това означава, че ще изградим основните части от системата - 
-		първо\footnote{Посоченият подход е лична интерпретация}. Допълнителна 
-		функционалност ще добавяме само, когато сме доволни от качеството на текущата програма. 
+	За създаването на нашият модел и цялостната програма ще се използва итеративен подход \cite{ArtOfAgile}.
+	Това означава, че ще изградим основните части от системата - 
+	първо\footnote{Посоченият подход е лична интерпретация}. Допълнителна 
+	функционалност ще добавяме само, когато сме доволни от качеството на текущата програма. 
+			
+	Основната част от програмата ще контролира заложените закони и взаимодеиствия	между обектите.
+	При всяка нова стъпка от симулацията, обектите участващи в нея ще предоставят информация за
+	състоянието в което се намират. То може да се променя, като това е изразено в промяна
+	на техните свойства.
+	
+	Необходимостта за изобразяване на самата симулация, по време на изпълнение и когато тя вече е приключила,
+	води до някои допълнителни ограничения. Системата трябва да работи достатъчно бързо\footnote{Между 30 и 60 кадъра в секунда},
+	за да предоставя гладка и лека работа за потребителя.
+	
+	С така поставените ограничения и подходи, използването на \ac{DES} предоставя:
+	
+	\begin{itemize}
+		\item Гъвкавкост
+		
+		\item Лесна имплементация
+		
+		\item Лесна промяна
+		
+		\item Лесно скриване на детайлите от самия потребител	
 				
-		Основната част от програмата ще контролира заложените закони и взаимодеиствия	между обектите.
-		При всяка нова стъпка от симулацията, обектите участващи в нея ще предоставят информация за
-		състоянието в което се намират. То може да се променя, като това е изразено в промяна
-		на техните свойства.
-		
-		Необходимостта за изобразяване на самата симулация, по време на изпълнение и когато тя вече е приключила,
-		води до някои допълнителни ограничения. Системата трябва да работи достатъчно бързо\footnote{Между 30 и 60 кадъра в секунда},
-		за да предоставя гладка и лека работа за потребителя.
-		
-		С така поставените ограничения и подходи, използването на \ac{DES} предоставя:
-		
-		\begin{itemize}
-			\item Гъвкавкост
+	\end{itemize}				
+	
+	Още повече, за симулация на трафик е необходима симулация от тип опашка, която в повече от случаите
+	се имплементира с помощта на \ac{DES} \cite{Barlas}.
+	
+	При стартиране на системата, тя ще изисква от потребителя да въведе необходимите данни за 
+	стартиране на симулация. Когато тя започне, на потребителя се дава възможност визуално
+	да наблюдава симулацията на всяка своя стъпка. След приключването й се предоставят
+	данни за това как е протекла симулацията.	На фиг. \ref{figure:system-model} е изобразена диаграма, която показва
+	работата на така зададения модел.	
+	
+	
+	\begin{figure} 
+			\caption{Модел на симулационната система}
+			\label{figure:system-model}
+			\begin{center}
 			
-			\item Лесна имплементация
-			
-			\item Лесна промяна
-			
-			\item Лесно скриване на детайлите от самия потребител	
-					
-		\end{itemize}				
+				\begin{tikzpicture}[scale=2, node distance = 4cm, auto]
+				    % Place nodes
+				    \node [start] (init) {Начало};
+				    \node [block, below of=init, node distance = 4cm] (load-settings) {Зареждане на настройки};
+				    \node [block, right of=load-settings, node distance = 5cm] (next-step) {Преминаване към следващо състояние};
+				    \node [block, below of=next-step, node distance = 3cm] (draw-current-state) {Изобразяване на текущото състояние};
+				    \node [decision, below of=draw-current-state, node distance = 5cm] (is-end) {Приключила ли е симулацията?};
+				    \node [block, below of=is-end, node distance = 5cm] (results) {Показване на крайните резултати};
+				    \node [exit, left of=results, node distance = 5cm] (end) {Край};
+				    % Draw edges
+				    \path [line] (init)               -- (load-settings);
+				    \path [line] (load-settings)      -- (next-step);
+				    \path [line] (next-step)          -- (draw-current-state);
+				    \path [line] (draw-current-state) -- (is-end);
+				    \path [line] (is-end.east)        |- node[above right] {Не} (next-step.east);
+				    \path [line] (is-end)             -- node[midway] {Да} (results);
+				    \path [line] (results)            -- (end);
+				\end{tikzpicture}	
 		
-		Още повече, за симулация на трафик е необходима симулация от тип опашка, която в повече от случаите
-		се имплементира с помощта на \ac{DES} \cite{Barlas}.
+		\end{center}	
 		
-		При стартиране на системата, тя ще изисква от потребителя да въведе необходимите данни за 
-		стартиране на симулация. Когато тя започне, на потребителя се дава възможност визуално
-		да наблюдава симулацията на всяка своя стъпка. След приключването й се предоставят
-		данни за това как е протекла симулацията.	На фиг. \ref{figure:system-model} е изобразена диаграма, която показва
-		работата на така зададения модел.	
-		
-		
-		\begin{figure} 
-				\caption{Модел на симулационната система}
-				\label{figure:system-model}
-				\begin{center}
-				
-					\begin{tikzpicture}[scale=2, node distance = 4cm, auto]
-					    % Place nodes
-					    \node [start] (init) {Начало};
-					    \node [block, below of=init, node distance = 4cm] (load-settings) {Зареждане на настройки};
-					    \node [block, right of=load-settings, node distance = 5cm] (next-step) {Преминаване към следващо състояние};
-					    \node [block, below of=next-step, node distance = 3cm] (draw-current-state) {Изобразяване на текущото състояние};
-					    \node [decision, below of=draw-current-state, node distance = 5cm] (is-end) {Приключила ли е симулацията?};
-					    \node [block, below of=is-end, node distance = 5cm] (results) {Показване на крайните резултати};
-					    \node [exit, left of=results, node distance = 5cm] (end) {Край};
-					    % Draw edges
-					    \path [line] (init)               -- (load-settings);
-					    \path [line] (load-settings)      -- (next-step);
-					    \path [line] (next-step)          -- (draw-current-state);
-					    \path [line] (draw-current-state) -- (is-end);
-					    \path [line] (is-end.east)        |- node[above right] {Не} (next-step.east);
-					    \path [line] (is-end)             -- node[midway] {Да} (results);
-					    \path [line] (results)            -- (end);
-					\end{tikzpicture}	
-			
-			\end{center}	
-			
-		\end{figure}						
-		\newpage
+	\end{figure}						
+	\newpage
 	
 	\subsection{Компоненти на симулацията}
 		Една \ac{DES} се представя като поредица от случващи се събития. Всяко събитие в
@@ -128,198 +126,89 @@
 				Създателят на симулацията трябва да прецени какво точно да бъде то, 
 				за да може тя да бъде прекратена.
 				
-			\end{description}
-	
-	\subsection{Избор на технология и програмен език}
-		\subsubsection{Светът на Lua}
-		
-			Lua е малък скриптов език, който кара да се усмихнеш, когато го използваш. 
-			Според авторите му той е: \footnote{\url{http://www.lua.org/about.html}} 
+			\end{description}	
 			
-			\begin{itemize}			
-				\item Бърз				
-				\item Лек				
-				\item Лесен за вграджане (embeddable)				
-				\item Доказан				
-			\end{itemize}
-			
-			Той е напълно безплатен за употреба. Разпространява се под 
-			\emph{MIT}\footnote{\url{http://www.opensource.org/licenses/mit-license.php}} лиценз. 
-			Доказал се е като добър избор за скриптов език за множество комерсиални 
-			игри\footnote{\url{http://en.wikipedia.org/wiki/Category:Lua-scripted_video_games}}.
-			
-			Автори на езика са Roberto Ierusalimschy, Waldemar Celes и Luiz Henrique de Figueiredo. Те разработват езика в
-			университета PUC-Rio\footnote{\url{http://www.puc-rio.br/index.html}}, като част от нуждите за тяхната група
-			от технологии за компютърна графика. 
-			
-			Името на езика идва от португалската дума Lua, която означава ``Луна``.
-			
-			Lua е смесица между обектно-ориентиран, функционален и програмиране свързано с данни (data-driven development)
-			подход към създаването на програми. Има лесен за научаване синтаксис и сравнително малък брой концепции. 
-			
-			Имплементиран е като библиотека за програмния език \emph{C}\footnote{\url{http://en.wikipedia.org/wiki/C_(programming_language)}}. 
-			Поради тази причина, той няма концепция за``основна програма`` (main program). Нуждае се от приемник (host), който извиква различни
-			части от код, написан на \emph{Lua}.
-			
-			С помощта на \emph{C} функции, \emph{Lua} може да бъде пригоден за работа в различни, непредвидени от авторите му,
-			области и споделя вече съществуващия синтаксис.
-			
-			\emphparagraph{Концепции}
-				Lua е динамично типизиран език (dynamically typed), което означава, че само стойностите имат тип.
-				
-				\lstinputlisting[title=Променливи]{code/lua/variables.lua}				
-				\lstinputlisting[title=Изход]{code/lua/variables.output}
-				
-				Има концепция за прихващане на грешките, която много се доближава до тази на изключенията от езици като
-				C++ и Java.
-				
-				\lstinputlisting[title=Грешки]{code/lua/errors.lua}
-				\lstinputlisting[title=Изход]{code/lua/errors.output}				
-				
-				Езикът предоставя и съвместни програми (coroutines). Съвместна програма в Lua представлява изпълнение на независима нишка.
-				
-				\lstinputlisting[title=Съвместни програми]{code/lua/coroutines.lua}
-				
-				\lstinputlisting[title=Изход]{code/lua/coroutines.output}				
-				
-				Използването на класове в \emph{Lua} е малко по-интересно и странно, в сравнение с езици като \emph{C} и \emph{Java}. 
-				То по-скоро напомня на прототипното наследяване в
-				\emph{JavaScript}\footnote{\url{http://www.crockford.com/javascript/inheritance.html}}.
-				Това позволява на всеки разработчик да създаде свой, собствен стил на писане на класове. Това може да е добро и лошо нещо.
-				
-				\lstinputlisting[title=Класове]{code/lua/classes.lua}
-				
-				\lstinputlisting[title=Изход]{code/lua/classes.output}				
-		
-		\subsubsection{Нужда от по-висока абстракция}
-		
-			Lua е прекрасен малък език, но сам по себе си, той не доставя необходимите инструменти
-			за лесно създаване на симулационна система. Намиране на библиотека предоставяща по-висока
-			абстракция е задължително.
-			
-			Една такава библиотека е \emph{Moai}\footnote{\url{http://getmoai.com/}} (произнася се Moe-Eye).
-			Тя е по-скоро двигател за игри (game engine).
-			Разработката й е започнала през 2010г. и е активно разработвана и до днес. 
-			Тя е с \emph{отворен код}\footnote{\url{http://github.com/moai/moai-dev}}
-			и използва лицензът \emph{CPAL}\footnote{\url{http://www.opensource.org/licenses/cpal_1.0}}, който
-			позволява да използваме софтуера за нашите цели. 
-			Разработена е от \emph{Zipline Games}\footnote{\url{http://www.ziplinegames.com/}}.						
-			
-			\emph{Moai} е библиотека за разработване на игри върху множество от платформи, вариращи от десктоп до
-			мобилни операционни системи. За основна графична библиотека се използва стандартът 
-			\emph{OpenGL}\footnote{\url{http://www.opengl.org/}}, който позволява тази разнообразност.
-			Поради добрата си свързаност със \emph{C}, Moai може да постигне производителност, по-висока
-			от тази на приложения написани на  \emph{Objective C}
-			\footnote{\url{http://en.wikipedia.org/wiki/Objective-C}} за \emph{iPhone}.
+\section{Програмиране}
 
-			Обеткният модел на \emph{Moai} е изцяло написан на \emph{C++} и използва префикс ``MOAI``. Тези обекти
-			се изчистват от \ac{GC}, също както и тези в \emph{Lua}. За това спомагат и т.нар. контейнери в \emph{Moai},
-			които се грижат да не останат неизчистени обекти от паметта.
-			
-			По време на създаването на \emph{Moai}, авторите са искали да направят библиотека, която да помага много
-			за лесното създаване на симулации\footnote{\url{http://getmoai.com/moai-basics-series/moai-basics-part-1.html}}.
-			Например, по подразбиране началото на координатната система е в центъра на екрана. Това позволява по-лесното
-			позициониране на обекти като цяло, тъй като обектите които са в центъра на екрана са по-важни за наблюдателя.
-			
-			\newpage			
-			
-			Програма, изписваща на екрана ``Hello from Moai``, излежда така:
-			
-			\lstinputlisting[title=Здравей Moai]{code/moai/hello-moai.lua}			
-			
-			Когато програмата се изпълни, на екрана се визуализира фиг. \ref{figure:hello-moai}
-			
-			\begin{figure} 
-				\caption{Резултат изпълнението на първата програма на \emph{Moai}}
-				\label{figure:hello-moai}
-					\begin{center}
-						\includegraphics{assets/images/hello-moai.png}				
-					\end{center}
-			\end{figure}
-			
-			\newpage
-			
-	\subsection{Програмиране на системата}
+	За да се спази итеративния подход към създаването на системата
+	се имплементират някои от изискванията към системата. Също така,
+	тези изисквания може допълнително да бъдат разбити на по-малки такива.
 	
-		За да се спази итеративния подход към създаването на системата
-		се имплементират някои от изискванията към системата. Също така,
-		тези изисквания може допълнително да бъдат разбити на по-малки такива.
-		
-		Първата версия има следната функционалност:
-		\begin{itemize}
-			\item Симулацията представлява пътно кръстовище с 4 посоки на движение.
-			\item Всяка посока има само 1 пътно платно.
-			\item Превозните средства могат да се движат само направо.
-			\item Скоростта за движение е постоянна.
-			\item Всяко кръстовище има 4 светофара.
-		\end{itemize}
-		
-		Посочените опростявания ще ни позволят да намерим грешките, които сме допуснали
-		при създаването на предварителния модел на системата. Още повече, 
-		те ще ускорят създаването на първоначална версия на системата.
-		
-		\subsubsection{Итерация I}
+	Първата версия има следната функционалност:
+	\begin{itemize}
+		\item Симулацията представлява пътно кръстовище с 4 посоки на движение.
+		\item Всяка посока има само 1 пътно платно.
+		\item Превозните средства могат да се движат само направо.
+		\item Скоростта за движение е постоянна.
+		\item Всяко кръстовище има 4 светофара.
+	\end{itemize}
 	
-			За описаният по-горе модел може да се използва проста архитектура, 
-			която да ни позволи по-лесно добавяне на нови възможности. Примерна
-			такава е дадена на фиг. \ref{figure:simulation-class-diagram}
-			
-			Основният клас, който се грижи за правилното провеждане на симулацията е \emph{Simulation}.
-			Той съдържа условието за край, както и това да казва на всички участници в симулацията кога е
-			минала една секунда.
-			
-			\emph{Crossroad} описва едно крастовище. То съдържа 4 пътни платна на които се добавят самите
-			превозни средства. Важно е да се отбележи, че превозните средства не знаят за кръстовищата, а
-			само за платната на които са и тези на които искат да отидат.									
+	Посочените опростявания ще ни позволят да намерим грешките, които сме допуснали
+	при създаването на предварителния модел на системата. Още повече, 
+	те ще ускорят създаването на първоначална версия на системата.
+	
+	\subsection{Итерация I}
+
+		За описаният по-горе модел може да се използва проста архитектура, 
+		която да ни позволи по-лесно добавяне на нови възможности. Примерна
+		такава е дадена на фиг. \ref{figure:simulation-class-diagram}
 		
-			\begin{figure}
-				\caption{Клас диаграма на симулационната система}
-				\label{figure:simulation-class-diagram}
-					\begin{center}
-						\begin{tikzpicture}
-							\begin{class}[text width = 6cm]{Simulation}{-5, 0}
-								\operation{+ start(timeToRun: Seconds)}
-							\end{class}
-							
-							\begin{class}[text width = 7cm]{Crossroad}{3, 0}
-								\attribute{- trafficLights}
-								\attribute{- roadBeds}
-								\operation{+ addVehicle(vehicle, roadbedSide)}
-							\end{class}					
-							
-							\begin{class}{Traffic Light}{-5, -6}
-								\operation{+ switch()}
-							\end{class}
+		Основният клас, който се грижи за правилното провеждане на симулацията е \emph{Simulation}.
+		Той съдържа условието за край, както и това да казва на всички участници в симулацията кога е
+		минала една секунда.
+		
+		\emph{Crossroad} описва едно крастовище. То съдържа 4 пътни платна на които се добавят самите
+		превозни средства. Важно е да се отбележи, че превозните средства не знаят за кръстовищата, а
+		само за платната на които са и тези на които искат да отидат.									
+	
+		\begin{figure}
+			\caption{Клас диаграма на симулационната система}
+			\label{figure:simulation-class-diagram}
+				\begin{center}
+					\begin{tikzpicture}
+						\begin{class}[text width = 6cm]{Simulation}{-5, 0}
+							\operation{+ start(timeToRun: Seconds)}
+						\end{class}
 						
-							\begin{class}{Roadbed}{2, -6}
-								\operation{+ push()}
-								\operation{+ pop()}
-								\operation{+ peek()}
-								\operation{+ size()}
-								\operation{+ isEmpty()}
-							\end{class}					
-																					
-							\begin{class}{Vehicle}{0, -12}
-								\attribute{- velocity}
-							\end{class}															
-						\end{tikzpicture}
-					\end{center}
-			\end{figure}
-			
-			\newpage			
-			
-			Описаният по-горе ``часовник``, като компонент на симулацията, базира времето си
-			на изминалите кадри. Това е така, защото не е ясно дали компютърната система
-			на която тече симулацията може да поддържа оптимилания брой кадри за секунда.
-			Алгоритъмът е показан на алг. \ref{algorithm:elapsed-seconds}.
-			
-			\begin{algorithm}				
-				\caption{Засичане на изминало време в симулацията}				
-				\label{algorithm:elapsed-seconds}
-				\begin{algorithmic}
-					\If {$frames \bmod 60 = 0$}
-						\State $seconds\gets seconds+1$
-						\State $notifySystemTimeChange(seconds)$
-					\EndIf
-				\end{algorithmic}
-			\end{algorithm}			
+						\begin{class}[text width = 7cm]{Crossroad}{3, 0}
+							\attribute{- trafficLights}
+							\attribute{- roadBeds}
+							\operation{+ addVehicle(vehicle, roadbedSide)}
+						\end{class}					
+						
+						\begin{class}{Traffic Light}{-5, -6}
+							\operation{+ switch()}
+						\end{class}
+					
+						\begin{class}{Roadbed}{2, -6}
+							\operation{+ push()}
+							\operation{+ pop()}
+							\operation{+ peek()}
+							\operation{+ size()}
+							\operation{+ isEmpty()}
+						\end{class}					
+																				
+						\begin{class}{Vehicle}{0, -12}
+							\attribute{- velocity}
+						\end{class}															
+					\end{tikzpicture}
+				\end{center}
+		\end{figure}
+		
+		\newpage			
+		
+		Описаният по-горе ``часовник``, като компонент на симулацията, базира времето си
+		на изминалите кадри. Това е така, защото не е ясно дали компютърната система
+		на която тече симулацията може да поддържа оптимилания брой кадри за секунда.
+		Алгоритъмът е показан на алг. \ref{algorithm:elapsed-seconds}.
+		
+		\begin{algorithm}				
+			\caption{Засичане на изминало време в симулацията}				
+			\label{algorithm:elapsed-seconds}
+			\begin{algorithmic}
+				\If {$frames \bmod 60 = 0$}
+					\State $seconds\gets seconds+1$
+					\State $notifySystemTimeChange(seconds)$
+				\EndIf
+			\end{algorithmic}
+		\end{algorithm}			
