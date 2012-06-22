@@ -209,6 +209,19 @@
 			
 			Уравнение \eqref{no-time-dependant} показва, че реакцията на системата, при зададен вход, не зависи
 			от времето в който е бил даден той.
+			
+			\begin{algorithm}				
+				\caption{Итеративна процедура за изчисление на функцията за промяна на състоянието}				
+				\label{algorithm:state-transition}
+				\begin{algorithmic}
+					\State $s\gets s_0$
+					\For{$t_k = t_0 \to t_n$}
+						\State $print(t_k, s)$
+						\Comment{Изписва на екрана времето и текущото състояние}
+						\State $s\gets F(s, x(t_k))$
+					\EndFor
+				\end{algorithmic}
+			\end{algorithm}	
 					
 \section{Програмиране}
 
