@@ -1,6 +1,6 @@
-module("running", package.seeall)
+module("simulation", package.seeall)
 
-local Running = {}
+local Simulation = {}
 
 local moduleLoader = require "src/module-loader"
 local Car = moduleLoader:load("model/car")
@@ -12,7 +12,7 @@ local drawLayer
 
 local leftCar, rightCar, topCar, downCar
 
-function Running:onStart()
+function Simulation:onStart()
 	drawBackground()
 	drawLayer = drawLayer()
 	timerBox = drawTimerBox(450, 250)
@@ -91,7 +91,7 @@ function drawLayer()
 	return layer
 end
 
-function Running:onNextStep(seconds)
+function Simulation:onNextStep(seconds)
 	if	config.TOTAL_RUNNING_TIME <= seconds then
 		return completeCallback()
 	end
@@ -102,8 +102,8 @@ function Running:onNextStep(seconds)
 					}	
 end
 
-function Running:setCompleteCallback(callback)
+function Simulation:setCompleteCallback(callback)
 	completeCallback = callback
 end
 
-return Running
+return Simulation
