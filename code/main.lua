@@ -17,5 +17,5 @@ function fontPathFor(font)
 end
 
 local simulator = moduleLoader:load("simulator")
-local startState = moduleLoader:loadState("running")
+local startState = moduleLoader:loadState("simulation")
 simulator:start(startState)
