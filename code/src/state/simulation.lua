@@ -93,13 +93,20 @@ end
 
 function Simulation:onNextStep(seconds)
 	if	config.TOTAL_RUNNING_TIME <= seconds then
-		return completeCallback()
+		return self:finish()
 	end
 	timerBox:setString(seconds .. "s")
-	
 	strategy:decide{seconds=seconds, 
 					vehicles={left=leftCar, top=topCar, right=rightCar, down=downCar}
 					}	
+end
+
+function Simulation:finish()
+	completeCallback()
+end
+
+function Simulation:onFinish()
+	print("Simulation complete")
 end
 
 function Simulation:setCompleteCallback(callback)

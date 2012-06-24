@@ -20,7 +20,7 @@ local function runner()
 end
 
 function Simulator:onStateComplete()
-	print("State complete")
+	currentState:onFinish()	
 	-- switch to the next one
 end
 
