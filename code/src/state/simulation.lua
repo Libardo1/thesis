@@ -4,6 +4,7 @@ local Simulation = {}
 
 local moduleLoader = require "src/module-loader"
 local Car = moduleLoader:load("model/car")
+local Bus = moduleLoader:load("model/bus")
 local Strategy = moduleLoader:loadStrategy(config.STRATEGY)
 
 local listener
@@ -15,62 +16,68 @@ local strategy
 
 local models = {left = Queue.new(), up = Queue.new(), right = Queue.new(), down = Queue.new()}
 
-local leftCar, rightCar, topCar, downCar
-
-local function initializeSide(orientation)
-	
+local function initializeSide(side)	
+	local modelCount = math.random(2, 100)
+	for i = 1, modelCount, 1 do		
+		local modelProb = math.random(1, 5)
+		local model
+		if modelProb < 4 then
+			model = Car.new()
+		else
+			model = Bus.new()
+		end
+		model.layer = drawLayer
+		if side == LEFT then
+			model.orientation = RIGHT
+			model.x = -400
+			model.y = -40
+			model.targetX = 400
+			model.targetY = -40
+			models.left:push(model)
+		elseif side == UP then
+			model.orientation = DOWN
+			model.x = -40
+			model.y = 200
+			model.targetX = -40
+			model.targetY = -200
+			models.up:push(model)
+		elseif side == RIGHT then
+			model.orientation = LEFT
+			model.x = 400
+			model.y = 40
+			model.targetX = -400
+			model.targetY = 40
+			models.right:push(model)
+		else
+			model.orientation = UP
+			model.x = 40
+			model.y = -200
+			model.targetX = 40
+			model.targetY = 200
+			models.down:push(model)
+		end
+	end
 end
 
 local function initializeModels()
-	initializeSide("left")
-	initializeSide("up")
-	initializeSide("right")
-	initializeSide("down")
+	initializeSide(LEFT)
+	initializeSide(UP)
+	initializeSide(RIGHT)
+	initializeSide(DOWN)
 end
 
 function Simulation:onStart(parameters)
+	UiFactory.drawImage("background.jpg", 1024, 768)	
+	drawLayer = UiFactory.drawLayer()
+	timerBox = UiFactory.drawTextBox{text = "0s", x = 450, y = 250, layer = drawLayer}
 	initializeModels()
 	strategy = Strategy.new(models)
 	strategy:setListener(self)
-	UiFactory.drawImage("background.jpg", 1024, 768)
-	drawLayer = UiFactory.drawLayer()
-	timerBox = UiFactory.drawTextBox{text = "0s", x = 450, y = 250, layer = drawLayer}
 	
-	leftCar = Car.new()
-	leftCar.orientation = RIGHT
-	leftCar.x = -400
-	leftCar.y = -40
-	leftCar.targetX = 400
-	leftCar.targetY = -40
-	leftCar.layer = drawLayer
-	leftCar:draw()
-	
-	rightCar = Car.new()
-	rightCar.orientation = LEFT
-	rightCar.x = 400
-	rightCar.y = 40
-	rightCar.targetX = -400
-	rightCar.targetY = 40
-	rightCar.layer = drawLayer
-	rightCar:draw()
-	
-	topCar = Car.new()
-	topCar.orientation = DOWN
-	topCar.x = -40
-	topCar.y = 200
-	topCar.targetX = -40
-	topCar.targetY = -200
-	topCar.layer = drawLayer
-	topCar:draw()
-	
-	downCar = Car.new()
-	downCar.orientation = UP
-	downCar.x = 40
-	downCar.y = -200
-	downCar.targetX = 40
-	downCar.targetY = 200
-	downCar.layer = drawLayer
-	downCar:draw()
+	models.left:peek():get():draw()
+	models.up:peek():get():draw()
+	models.right:peek():get():draw()
+	models.down:peek():get():draw()
 end
 
 function Simulation:onNextStep(seconds)
@@ -79,9 +86,7 @@ function Simulation:onNextStep(seconds)
 		return self:finish()
 	end
 	timerBox:setString(seconds .. "s")	
-	strategy:decide{seconds=seconds, 
-					vehicles={left=leftCar, top=topCar, right=rightCar, down=downCar}
-					}	
+	strategy:decide(seconds)
 end
 
 function Simulation:onVehiclePassed()
@@ -93,8 +98,7 @@ function Simulation:finish()
 end
 
 function Simulation:onFinish()
-	MOAIRenderMgr.setRenderTable({})
-	print("Simulation complete")
+	UiFactory.clearScreen()	
 end
 
 function Simulation:setListener(stateListener)

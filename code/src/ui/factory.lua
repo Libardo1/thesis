@@ -54,25 +54,36 @@ function Factory.drawLayer()
 	return layer
 end
 
+function Factory.initializeModel(model)
+	model.prop = MOAIProp2D.new()
+end
+
 function Factory.drawModel(model)
-	local prop = MOAIProp2D.new()
-	model.prop = prop
 	local image, side = model:image()
-	prop:setDeck(loadTexture(image, -(side / 2), -(side / 2), (side / 2), (side / 2)))
-	model.layer:insertProp(prop)
-	prop:setLoc(model.x, model.y)
+	model.prop:setDeck(loadTexture(image, -(side / 2), -(side / 2), (side / 2), (side / 2)))
+	model.layer:insertProp(model.prop)
+	model.prop:setLoc(model.x, model.y)
 	local orientation = model.orientation
 	if orientation == LEFT then
-		prop:addRot(90, 0)
+		model.prop:addRot(90, 0)
 	elseif orientation == RIGHT then
-		prop:addRot(-90, 0)
+		model.prop:addRot(-90, 0)
 	elseif orientation == DOWN then
-		prop:addRot(180, 0)
+		model.prop:addRot(180, 0)
 	end
 end
 
-function Factory.moveAndRemove(options)
+function Factory.moveAndRemove(model, onCompleteCallback)
+	thread = MOAICoroutine.new()
+	thread:run(function()
+		MOAICoroutine.blockOnAction(model.prop:seekLoc(model.targetX, model.targetY, 1, MOAIEaseType.LINEAR))
+		model.layer:removeProp(model.prop)
+		onCompleteCallback()
+	end)
+end
 
+function Factory.clearScreen()
+	MOAIRenderMgr.setRenderTable({})
 end
 
 return Factory

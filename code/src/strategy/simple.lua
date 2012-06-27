@@ -12,20 +12,34 @@ function Simple.new(models)
 	return newSimple
 end
 
-function Simple:decide(options)
-	if options.seconds % 3 == 0 then
+function Simple:decide(seconds)
+	if seconds % 3 == 0 then
 		currentGreen = (currentGreen + 1) % 4		
 	end
+	local model
+	local nextModel
 	if currentGreen == LEFT then
-		options.vehicles.left:move()
+		model = self.models.left:pop()
+		nextModel = self.models.left:pop()
 	elseif currentGreen == DOWN then
-		options.vehicles.down:move()
+		model = self.models.down:pop()
+		nextModel = self.models.down:pop()
 	elseif currentGreen == RIGHT then
-		options.vehicles.right:move()
+		model = self.models.right:pop()
+		nextModel = self.models.right:pop()
 	else
-		options.vehicles.top:move()
+		model = self.models.up:pop()				
+		nextModel = self.models.up:pop()				
 	end
-	self.listener:onVehiclePassed()
+	if model:isPresent() then
+		model:get():move(function() 
+			self.listener:onVehiclePassed()
+			if nextModel:isPresent() then
+				nextModel:get():draw()
+			end		
+		end)		
+	end
+	
 end
 
 function Simple:setListener(listener)

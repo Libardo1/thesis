@@ -5,17 +5,13 @@ Car.__index = Car
 
 function Car.new()
 	local newCar = {}
-	newCar.prop = MOAIProp2D.new()
 	setmetatable(newCar, Car)
+	UiFactory.initializeModel(newCar)
 	return newCar
 end
 
-function Car:move()
-	thread = MOAICoroutine.new()
-	thread:run(function() 
-		MOAICoroutine.blockOnAction(self.prop:seekLoc(self.targetX, self.targetY, 1, MOAIEaseType.LINEAR))
-		self.layer:removeProp(self.prop)
-	end)
+function Car:move(onCompleteCallback)
+	UiFactory.moveAndRemove(self, onCompleteCallback)
 end
 
 function Car:image()
