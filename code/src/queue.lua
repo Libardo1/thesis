@@ -1,4 +1,4 @@
-require 'optional'
+module("queue", package.seeall)
 
 Queue = {}
 Queue.__index = Queue
@@ -37,3 +37,5 @@ function Queue:peek()
 	end	
 	return Optional.of(self.data[1])
 end
+
+return Queue

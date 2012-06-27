@@ -1,5 +1,7 @@
 local moduleLoader = require "src/module-loader"
 moduleLoader:load("directions")
+Optional = moduleLoader:load("optional")
+moduleLoader:load("queue")
 config = moduleLoader:load("config")
 
 MOAISim.openWindow("Simtlr",  config.SCREEN_WIDTH, config.SCREEN_HEIGHT)

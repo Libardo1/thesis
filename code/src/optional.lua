@@ -1,3 +1,5 @@
+module("optional", package.seeall)
+
 Optional = {}
 Optional.__index = Optional
 
@@ -15,7 +17,11 @@ end
 
 function Optional.absent()
 	return new(nil)
-end 
+end
+
+function Optional:isAbsent()
+	return not self:isPresent()
+end
 
 function Optional:isPresent()
 	return self.value ~= nil
@@ -31,3 +37,5 @@ function Optional:get()
 	end
 	return self.defaultValue
 end
+
+return Optional

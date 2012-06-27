@@ -6,6 +6,7 @@ Timer = moduleLoader:load("timer")
 
 local currentState = nil
 local timer
+local mainCoroutine
 
 local function runner()
 	local frames = 0
@@ -19,19 +20,26 @@ local function runner()
 	end
 end
 
-function Simulator:onStateComplete()
-	currentState:onFinish()	
-	-- switch to the next one
+function Simulator:onStateComplete(options)
+	currentState:onFinish()
+	if options.nextState:isAbsent() then
+		return
+	end
+	nextState = moduleLoader:loadState(options.nextState:get())
+	nextStateParameters = options.parameters
+	currentState = nextState
+	currentState:setListener(self)
+	currentState:onStart()
 end
 
 function Simulator:start(state)
 	currentState = state
-	currentState:setCompleteCallback(self.onStateComplete)
+	currentState:setListener(self)
 	timer = Timer.new()
 	timer:start()
 	currentState:onStart()
-	mainThread = MOAIThread.new()
-	mainThread:run(runner)
+	mainCoroutine = MOAICoroutine.new()
+	mainCoroutine:run(runner)
 end
 
 return Simulator

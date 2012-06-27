@@ -5,7 +5,7 @@ config = {}
 config.SCREEN_WIDTH = 1024
 config.SCREEN_HEIGHT = 768
 
-config.TOTAL_RUNNING_TIME = 300
+config.TOTAL_RUNNING_TIME = 1
 config.FRAMES_IN_SECOND = 60
 
 config.STRATEGY = "simple"

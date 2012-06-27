@@ -6,7 +6,7 @@ local moduleLoader = require "src/module-loader"
 local Car = moduleLoader:load("model/car")
 local strategy = moduleLoader:loadStrategy(config.STRATEGY)
 
-local completeCallback
+local listener
 local timerBox
 local drawLayer
 
@@ -102,15 +102,15 @@ function Simulation:onNextStep(seconds)
 end
 
 function Simulation:finish()
-	completeCallback()
+	listener:onStateComplete{nextState = Optional.of("result"), parameters = {}}
 end
 
 function Simulation:onFinish()
 	print("Simulation complete")
 end
 
-function Simulation:setCompleteCallback(callback)
-	completeCallback = callback
+function Simulation:setListener(stateListener)
+	listener = stateListener
 end
 
 return Simulation
