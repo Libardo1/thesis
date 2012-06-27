@@ -5,9 +5,10 @@ Simple.__index = Simple
 
 local currentGreen = UP
 
-function Simple.new()
+function Simple.new(models)
 	local newSimple = {}
 	setmetatable(newSimple, Simple)
+	newSimple.models = models
 	return newSimple
 end
 
@@ -24,6 +25,11 @@ function Simple:decide(options)
 	else
 		options.vehicles.top:move()
 	end
+	self.listener:onVehiclePassed()
+end
+
+function Simple:setListener(listener)
+	self.listener = listener
 end
 
 return Simple

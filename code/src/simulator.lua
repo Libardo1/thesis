@@ -27,18 +27,17 @@ function Simulator:onStateComplete(options)
 		return
 	end
 	nextState = moduleLoader:loadState(options.nextState:get())
-	nextStateParameters = options.parameters
 	currentState = nextState
 	currentState:setListener(self)
-	currentState:onStart()
+	currentState:onStart(options.parameters)
 end
 
-function Simulator:start(state)
+function Simulator:start(state, parameters)
 	currentState = state
 	currentState:setListener(self)
 	timer = Timer.new()
 	timer:start()
-	currentState:onStart()
+	currentState:onStart(parameters)
 	mainCoroutine = MOAICoroutine.new()
 	mainCoroutine:run(runner)
 end

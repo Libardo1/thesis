@@ -4,15 +4,34 @@ local Simulation = {}
 
 local moduleLoader = require "src/module-loader"
 local Car = moduleLoader:load("model/car")
-local strategy = moduleLoader:loadStrategy(config.STRATEGY)
+local Strategy = moduleLoader:loadStrategy(config.STRATEGY)
 
 local listener
 local timerBox
 local drawLayer
+local elapsedSeconds
+local vehiclesPassed = 0
+local strategy
+
+local models = {left = Queue.new(), up = Queue.new(), right = Queue.new(), down = Queue.new()}
 
 local leftCar, rightCar, topCar, downCar
 
-function Simulation:onStart()
+local function initializeSide(orientation)
+	
+end
+
+local function initializeModels()
+	initializeSide("left")
+	initializeSide("up")
+	initializeSide("right")
+	initializeSide("down")
+end
+
+function Simulation:onStart(parameters)
+	initializeModels()
+	strategy = Strategy.new(models)
+	strategy:setListener(self)
 	UiFactory.drawImage("background.jpg", 1024, 768)
 	drawLayer = UiFactory.drawLayer()
 	timerBox = UiFactory.drawTextBox{text = "0s", x = 450, y = 250, layer = drawLayer}
@@ -56,20 +75,25 @@ end
 
 function Simulation:onNextStep(seconds)
 	if	config.TOTAL_RUNNING_TIME <= seconds then
+		elapsedSeconds = seconds
 		return self:finish()
 	end
-	timerBox:setString(seconds .. "s")
+	timerBox:setString(seconds .. "s")	
 	strategy:decide{seconds=seconds, 
 					vehicles={left=leftCar, top=topCar, right=rightCar, down=downCar}
 					}	
 end
 
+function Simulation:onVehiclePassed()
+	vehiclesPassed = vehiclesPassed + 1
+end
+
 function Simulation:finish()
-	listener:onStateComplete{nextState = Optional.of("result"), parameters = {}}
+	listener:onStateComplete{nextState = Optional.of("result"), parameters = {elapsedSeconds = elapsedSeconds, vehiclesPassed = vehiclesPassed}}
 end
 
 function Simulation:onFinish()
-	MOAIRenderMgr.setRenderTable{}
+	MOAIRenderMgr.setRenderTable({})
 	print("Simulation complete")
 end
 

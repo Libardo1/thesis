@@ -10,17 +10,24 @@ local function fontPathFor(font)
 	return "assets/fonts/"..font
 end
 
+local function loadTexture(file, x1, y1, x2, y2)
+	texture = MOAIGfxQuad2D.new()
+	texture:setTexture(imagePathFor(file))
+	texture:setRect(x1, y1, x2, y2)
+	return texture
+end
+
 local charcodes = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;!?()&/-'
 local font = MOAIFont.new()
 font:loadFromTTF(fontPathFor('arialbd.ttf'), charcodes, 16, 163)
 
 function Factory.drawTextBox(options)		
-	textbox = MOAITextBox.new()
+	local textbox = MOAITextBox.new()
 	textbox:setString(options.text)
 	textbox:setFont(font)
 	textbox:setLoc(options.x, options.y)
 	textbox:setTextSize(16)
-	textbox:setRect(-30, -30, 30, 30)
+	textbox:setRect(-100, -30, 100, 30)
 	textbox:setYFlip(true)
 	options.layer:insertProp(textbox)
 	return textbox
@@ -45,6 +52,27 @@ function Factory.drawLayer()
 	layer:setViewport(viewport)
 	MOAISim.pushRenderPass(layer)
 	return layer
+end
+
+function Factory.drawModel(model)
+	local prop = MOAIProp2D.new()
+	model.prop = prop
+	local image, side = model:image()
+	prop:setDeck(loadTexture(image, -(side / 2), -(side / 2), (side / 2), (side / 2)))
+	model.layer:insertProp(prop)
+	prop:setLoc(model.x, model.y)
+	local orientation = model.orientation
+	if orientation == LEFT then
+		prop:addRot(90, 0)
+	elseif orientation == RIGHT then
+		prop:addRot(-90, 0)
+	elseif orientation == DOWN then
+		prop:addRot(180, 0)
+	end
+end
+
+function Factory.moveAndRemove(options)
+
 end
 
 return Factory

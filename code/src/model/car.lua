@@ -3,10 +3,6 @@ module("car", package.seeall)
 Car = {}
 Car.__index = Car
 
-local carTexture = MOAIGfxQuad2D.new()
-carTexture:setTexture(imagePathFor("car.png"))
-carTexture:setRect(-96, -96, 96, 96)
-
 function Car.new()
 	local newCar = {}
 	newCar.prop = MOAIProp2D.new()
@@ -22,18 +18,12 @@ function Car:move()
 	end)
 end
 
+function Car:image()
+	return "car.png", 192
+end
+
 function Car:draw()
-	self.prop:setDeck(carTexture)
-	self.layer:insertProp(self.prop)
-	self.prop:setLoc(self.x, self.y)
-	local orientation = self.orientation
-	if orientation == LEFT then
-		self.prop:addRot(90, 0)
-	elseif orientation == RIGHT then
-		self.prop:addRot(-90, 0)
-	elseif orientation == DOWN then
-		self.prop:addRot(180, 0)
-	end
+	UiFactory.drawModel(self)
 end
 
 return Car

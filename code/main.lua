@@ -2,7 +2,7 @@ local moduleLoader = require "src/module-loader"
 moduleLoader:load("directions")
 Optional = moduleLoader:load("optional")
 UiFactory = moduleLoader:load("ui/factory")
-moduleLoader:load("queue")
+Queue = moduleLoader:load("queue")
 config = moduleLoader:load("config")
 
 MOAISim.openWindow("Simtlr",  config.SCREEN_WIDTH, config.SCREEN_HEIGHT)
@@ -11,14 +11,9 @@ viewport = MOAIViewport.new()
 viewport:setScale(config.SCREEN_WIDTH, config.SCREEN_HEIGHT)
 viewport:setSize(config.SCREEN_WIDTH, config.SCREEN_HEIGHT)
 
-function imagePathFor(image)
-	return "assets/images/"..image
-end
-
-function fontPathFor(font)
-	return "assets/fonts/"..font
-end
+math.randomseed(os.time())
 
 local simulator = moduleLoader:load("simulator")
 local startState = moduleLoader:loadState("simulation")
-simulator:start(startState)
+
+simulator:start(startState, {})
