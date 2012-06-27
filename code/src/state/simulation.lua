@@ -12,12 +12,15 @@ local timerBox
 local drawLayer
 local elapsedSeconds
 local vehiclesPassed = 0
+local busesPassed = 0
+local carsPassed = 0
+
 local strategy
 
 local models = {left = Queue.new(), up = Queue.new(), right = Queue.new(), down = Queue.new()}
 
-local function initializeSide(side)	
-	local modelCount = math.random(2, 100)
+local function initializeSide(side)
+	local modelCount = math.random(2, config.MAXIMUM_MODELS_PER_SIDE)
 	for i = 1, modelCount, 1 do		
 		local modelProb = math.random(1, 5)
 		local model
@@ -67,7 +70,7 @@ local function initializeModels()
 end
 
 function Simulation:onStart(parameters)
-	UiFactory.drawImage("background.jpg", 1024, 768)	
+	UiFactory.drawImage("background.jpg", config.SCREEN_WIDTH, config.SCREEN_HEIGHT)	
 	drawLayer = UiFactory.drawLayer()
 	timerBox = UiFactory.drawTextBox{text = "0s", x = 450, y = 250, layer = drawLayer}
 	initializeModels()
@@ -85,16 +88,25 @@ function Simulation:onNextStep(seconds)
 		elapsedSeconds = seconds
 		return self:finish()
 	end
-	timerBox:setString(seconds .. "s")	
+	timerBox:setString(seconds .. "s")
 	strategy:decide(seconds)
 end
 
-function Simulation:onVehiclePassed()
+function Simulation:onVehiclePassed(vehicleName)
 	vehiclesPassed = vehiclesPassed + 1
+	if vehicleName == "Car" then
+		carsPassed = carsPassed + 1		
+	elseif vehicleName == "Bus" then
+		busesPassed = busesPassed + 1
+	end
 end
 
 function Simulation:finish()
-	listener:onStateComplete{nextState = Optional.of("result"), parameters = {elapsedSeconds = elapsedSeconds, vehiclesPassed = vehiclesPassed}}
+	listener:onStateComplete{nextState = Optional.of("result"), 
+							parameters = {elapsedSeconds = elapsedSeconds, 
+										  vehiclesPassed = vehiclesPassed,
+										  carsPassed = carsPassed,
+										  busesPassed = busesPassed}}
 end
 
 function Simulation:onFinish()

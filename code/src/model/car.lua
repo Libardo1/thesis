@@ -22,4 +22,8 @@ function Car:draw()
 	UiFactory.drawModel(self)
 end
 
+function Car:toString()
+	return "Car"
+end
+
 return Car

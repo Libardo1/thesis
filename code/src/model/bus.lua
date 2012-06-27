@@ -22,4 +22,8 @@ function Bus:draw()
 	UiFactory.drawModel(self)
 end
 
+function Bus:toString()
+	return "Bus"
+end
+
 return Bus

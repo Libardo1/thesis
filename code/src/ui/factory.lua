@@ -76,7 +76,7 @@ end
 function Factory.moveAndRemove(model, onCompleteCallback)
 	thread = MOAICoroutine.new()
 	thread:run(function()
-		MOAICoroutine.blockOnAction(model.prop:seekLoc(model.targetX, model.targetY, 1, MOAIEaseType.LINEAR))
+		MOAICoroutine.blockOnAction(model.prop:seekLoc(model.targetX, model.targetY, 0.6, MOAIEaseType.LINEAR))
 		model.layer:removeProp(model.prop)
 		onCompleteCallback()
 	end)

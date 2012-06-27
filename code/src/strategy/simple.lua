@@ -20,20 +20,20 @@ function Simple:decide(seconds)
 	local nextModel
 	if currentGreen == LEFT then
 		model = self.models.left:pop()
-		nextModel = self.models.left:pop()
+		nextModel = self.models.left:peek()
 	elseif currentGreen == DOWN then
 		model = self.models.down:pop()
-		nextModel = self.models.down:pop()
+		nextModel = self.models.down:peek()
 	elseif currentGreen == RIGHT then
 		model = self.models.right:pop()
-		nextModel = self.models.right:pop()
+		nextModel = self.models.right:peek()
 	else
 		model = self.models.up:pop()				
-		nextModel = self.models.up:pop()				
+		nextModel = self.models.up:peek()				
 	end
 	if model:isPresent() then
 		model:get():move(function() 
-			self.listener:onVehiclePassed()
+			self.listener:onVehiclePassed(model:get():toString())
 			if nextModel:isPresent() then
 				nextModel:get():draw()
 			end		
