@@ -13,9 +13,9 @@ local drawLayer
 local leftCar, rightCar, topCar, downCar
 
 function Simulation:onStart()
-	drawBackground()
-	drawLayer = drawLayer()
-	timerBox = drawTimerBox(450, 250)
+	UiFactory.drawImage("background.jpg", 1024, 768)
+	drawLayer = UiFactory.drawLayer()
+	timerBox = UiFactory.drawTextBox{text = "0s", x = 450, y = 250, layer = drawLayer}
 	
 	leftCar = Car.new()
 	leftCar.orientation = RIGHT
@@ -54,43 +54,6 @@ function Simulation:onStart()
 	downCar:draw()
 end
 
-function drawTimerBox(x, y)
-	charcodes = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,:;!?()&/-'
-	font = MOAIFont.new()
-	font:loadFromTTF(fontPathFor('arialbd.ttf'), charcodes, 16, 163)
-	
-	textbox = MOAITextBox.new()
-	textbox:setString("0s")
-	textbox:setFont(font)
-	textbox:setLoc(x, y)
-	textbox:setTextSize(16)
-	textbox:setRect(-30, -30, 30, 30)
-	textbox:setYFlip(true)
-	drawLayer:insertProp(textbox)
-	return textbox
-end
-
-function drawBackground() 
-	backgroundGfx = MOAIGfxQuad2D.new()
-	backgroundGfx:setTexture(imagePathFor("background.jpg"))
-	backgroundGfx:setRect(-512, -384, 512, 384)
-
-	background = MOAILayer2D.new()
-	background:setViewport(viewport)
-	MOAISim.pushRenderPass(background)
-
-	backgroundProp = MOAIProp2D.new()
-	backgroundProp:setDeck(backgroundGfx)
-	background:insertProp(backgroundProp)
-end
-
-function drawLayer()
-	layer = MOAILayer2D.new()
-	layer:setViewport(viewport)
-	MOAISim.pushRenderPass(layer)
-	return layer
-end
-
 function Simulation:onNextStep(seconds)
 	if	config.TOTAL_RUNNING_TIME <= seconds then
 		return self:finish()
@@ -106,6 +69,7 @@ function Simulation:finish()
 end
 
 function Simulation:onFinish()
+	MOAIRenderMgr.setRenderTable{}
 	print("Simulation complete")
 end
 

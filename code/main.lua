@@ -1,6 +1,7 @@
 local moduleLoader = require "src/module-loader"
 moduleLoader:load("directions")
 Optional = moduleLoader:load("optional")
+UiFactory = moduleLoader:load("ui/factory")
 moduleLoader:load("queue")
 config = moduleLoader:load("config")
 

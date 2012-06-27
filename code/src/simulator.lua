@@ -22,6 +22,7 @@ end
 
 function Simulator:onStateComplete(options)
 	currentState:onFinish()
+	MOAISim.forceGarbageCollection()
 	if options.nextState:isAbsent() then
 		return
 	end
