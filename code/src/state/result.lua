@@ -8,7 +8,7 @@ function Result:onStart(parameters)
 	local drawLayer = UiFactory.drawLayer()
 	UiFactory.drawTextBox{text = "Running time: ".. parameters.elapsedSeconds .."s", x = 0, y = 50, layer = drawLayer}
 	UiFactory.drawTextBox{text = "Vehicles passed: ".. parameters.vehiclesPassed, x = 0, y = 10, layer = drawLayer}
-	local congestionFactor = parameters.busesPassed * config.BUS_CONGESTION_MULTIPLIER + parameters.carsPassed * config.CAR_CONGESTION_MULTIPLIER
+	local congestionFactor = parameters.busesPassed * config.BUS_EFFECTIVENESS_MULTIPLIER + parameters.carsPassed * config.CAR_EFFECTIVENESS_MULTIPLIER
 	UiFactory.drawTextBox{text = "Congestion factor: ".. congestionFactor, x = 0, y = -30, layer = drawLayer}
 end
 
