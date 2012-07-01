@@ -300,7 +300,7 @@ r17-35 { blockIndent: 36; }</annotations>
         <annotations>r0-7 { align: left; }</annotations>
       </textfield>
     </object>
-    <object id="50" type="label" x="107551.9" y="-57854.05" r="5.509398653632349" s="11.677671329606559" class="body">
+    <object id="50" type="label" x="107551.9" y="-57854.05" r="5.50939865363235" s="11.677671329606559" class="body">
       <textfield>
         <x>-246.8</x>
         <y>-95</y>
@@ -419,12 +419,20 @@ r0-1 { align: left; }</annotations>
 r0-1 { align: left; }</annotations>
       </textfield>
     </object>
-    <object id="3_16034113" type="button" x="59753.15" y="-62557" r="5.504136844555892" s="3.8154281917236634">
+    <object id="3_16034113" type="button" x="59753.15" y="-62557" r="5.504136844555892" s="3.815428191723663">
       <type>invisible</type>
       <size>
         <w>622.675982532751</w>
         <h>464.6999999999998</h>
       </size>
+    </object>
+    <object id="0_16035670" type="label" x="-85060.75" y="-47056.6" r="-5.251914825215425" s="91.400733428517" class="body">
+      <textfield>
+        <x>-74.45</x>
+        <y>-17.5</y>
+        <text><![CDATA[3 Юли 2012 г.]]></text>
+        <annotations>r0-13 { align: left; }</annotations>
+      </textfield>
     </object>
   </zui-table>
   <path>
@@ -443,14 +451,14 @@ r0-1 { align: left; }</annotations>
   <style type="text/css"><![CDATA[
 @font-face
 {
-	src: url('PTSans.swf');
-	fontFamily: body;
+	src: url('YanoneKaffeesatz.swf');
+	fontFamily: head;
 }
 
 @font-face
 {
-	src: url('YanoneKaffeesatz.swf');
-	fontFamily: head;
+	src: url('PTSans.swf');
+	fontFamily: body;
 }
 
 @font-face
@@ -461,8 +469,8 @@ r0-1 { align: left; }</annotations>
 
 background
 {
-	gradEnd: #808080;
 	gradStart: #808080;
+	gradEnd: #808080;
 }
 
 text
@@ -472,54 +480,54 @@ text
 
 text.title
 {
-	color: #fff808;
 	fontFamily: head;
+	color: #fff808;
 }
 
 text.subtitle
 {
-	color: #fff;
 	fontFamily: strong;
+	color: #fff;
 }
 
 text.body
 {
-	color: #fff;
 	fontFamily: body;
+	color: #fff;
 }
 
 frame.circle
 {
-	gradStartColor: #333;
-	borderColor: #999;
 	gradEndColor: #333;
+	borderColor: #999;
 	borderThickness: 0;
+	gradStartColor: #333;
 }
 
 frame.bracket
 {
-	thickness: 7;
-	gradStartColor: #fff;
-	borderColor: #fff;
 	gradEndColor: #c5c3c3;
+	thickness: 7;
+	borderColor: #fff;
 	borderThickness: 0;
+	gradStartColor: #fff;
 }
 
 frame.rectangle
 {
-	gradStartColor: #000;
-	borderColor: #fff;
 	gradEndColor: #000;
+	borderColor: #fff;
 	borderThickness: 0;
+	gradStartColor: #000;
 	radius: 0;
 }
 
 arrow
 {
-	gradStartColor: #fff808;
-	borderColor: #fff;
 	gradEndColor: #fff808;
+	borderColor: #fff;
 	borderThickness: -1;
+	gradStartColor: #fff808;
 }
 
 line
@@ -529,95 +537,95 @@ line
 
 line-arrow.style1
 {
+	gradEndColor: #fff;
 	color: #fff;
 	gradStartColor: #fff;
-	gradEndColor: #fff;
 }
 
 line-arrow.style2
 {
+	gradEndColor: #c5c3c3;
 	color: #c5c3c3;
 	gradStartColor: #c5c3c3;
-	gradEndColor: #c5c3c3;
 }
 
 line-arrow.style3
 {
+	gradEndColor: #fff808;
 	color: #fff808;
 	gradStartColor: #fff808;
-	gradEndColor: #fff808;
 }
 
 line-arrow.style4
 {
+	gradEndColor: #333;
 	color: #333;
 	gradStartColor: #333;
-	gradEndColor: #333;
 }
 
 line-arrow.style5
 {
+	gradEndColor: #000;
 	color: #000;
 	gradStartColor: #000;
-	gradEndColor: #000;
 }
 
 circle
 {
-	thickness: 100;
 	lockTintAlpha: 0.6;
-	borderAlpha: 1;
+	thickness: 100;
 	radius: 0;
+	borderAlpha: 1;
 }
 
 shape
 {
-	lockTintAlpha: 0.6;
 	gradEndAlpha: 0.8;
-	borderAlpha: 1;
 	radius: 0;
+	lockTintAlpha: 0.6;
 	thickness: 100;
 	gradStartAlpha: 0.7;
+	borderAlpha: 1;
 }
 
 shape.style1
 {
-	gradStartColor: #fff;
-	borderColor: #fff;
 	gradEndColor: #fff;
+	borderColor: #fff;
 	borderThickness: 0;
+	gradStartColor: #fff;
 }
 
 shape.style2
 {
-	gradStartColor: #c5c3c3;
-	borderColor: #c5c3c3;
 	gradEndColor: #c5c3c3;
+	borderColor: #c5c3c3;
 	borderThickness: 0;
+	gradStartColor: #c5c3c3;
 }
 
 shape.style3
 {
-	gradStartColor: #fff808;
-	borderColor: #fff808;
 	gradEndColor: #fff808;
+	borderColor: #fff808;
 	borderThickness: 0;
+	gradStartColor: #fff808;
 }
 
 shape.style4
 {
-	gradStartColor: #333;
-	borderColor: #333;
 	gradEndColor: #333;
+	borderColor: #333;
 	borderThickness: 0;
+	gradStartColor: #333;
 }
 
 shape.style5
 {
-	gradStartColor: #000;
-	borderColor: #000;
 	gradEndColor: #000;
+	borderColor: #000;
 	borderThickness: 0;
+	gradStartColor: #000;
 }
 
 free-line
@@ -638,26 +646,26 @@ grid
 
 ZCircle
 {
-	thickness: 100;
 	lockTintAlpha: 0.6;
-	borderAlpha: 1;
+	thickness: 100;
 	radius: 0;
+	borderAlpha: 1;
 }
 
 ZPoly
 {
-	lockTintAlpha: 0.6;
 	gradEndAlpha: 0.9;
-	borderAlpha: 1;
 	radius: 0;
+	lockTintAlpha: 0.6;
 	thickness: 100;
 	gradStartAlpha: 0.8;
+	borderAlpha: 1;
 }
 
 Background
 {
-	gradEnd: #fff;
 	gradStart: #fff;
+	gradEnd: #fff;
 }
 
 ZLabel
@@ -667,36 +675,36 @@ ZLabel
 
 ZLabel.head
 {
-	color: #000;
 	fontFamily: head;
+	color: #000;
 }
 
 .line5
 {
+	gradEndColor: #194a99;
 	color: #194a99;
 	gradStartColor: #194a99;
-	gradEndColor: #194a99;
 }
 
 .poly5
 {
-	gradStartColor: #333;
-	borderColor: #333;
 	gradEndColor: #333;
+	borderColor: #333;
 	borderThickness: 0;
+	gradStartColor: #333;
 }
 
 ZLabel.strong
 {
-	color: #194a99;
 	fontFamily: strong;
+	color: #194a99;
 }
 
 .line1
 {
+	gradEndColor: #194a99;
 	color: #194a99;
 	gradStartColor: #194a99;
-	gradEndColor: #194a99;
 }
 
 .poly1
@@ -706,85 +714,85 @@ ZLabel.strong
 
 ZLabel.body
 {
-	color: #333;
 	fontFamily: body;
+	color: #333;
 }
 
 ZFrame.circle
 {
-	gradStartColor: #194a99;
-	borderColor: #fff;
 	gradEndColor: #194a99;
+	borderColor: #fff;
 	borderThickness: 0;
+	gradStartColor: #194a99;
 }
 
 .line4
 {
+	gradEndColor: #318bff;
 	color: #318bff;
 	gradStartColor: #318bff;
-	gradEndColor: #318bff;
 }
 
 .poly4
 {
-	gradStartColor: #194a99;
-	borderColor: #194a99;
 	gradEndColor: #194a99;
+	borderColor: #194a99;
 	borderThickness: 0;
+	gradStartColor: #194a99;
 }
 
 ZFrame.bracket
 {
-	gradStartColor: #318bff;
-	borderColor: #fff;
 	gradEndColor: #318bff;
+	borderColor: #fff;
 	borderThickness: 0;
+	gradStartColor: #318bff;
 }
 
 .line2
 {
+	gradEndColor: #7a8082;
 	color: #7a8082;
 	gradStartColor: #7a8082;
-	gradEndColor: #7a8082;
 }
 
 .poly2
 {
-	gradStartColor: #7a8082;
-	borderColor: #7a8082;
 	gradEndColor: #7a8082;
+	borderColor: #7a8082;
 	borderThickness: 0;
+	gradStartColor: #7a8082;
 }
 
 ZFrame.roundrect
 {
-	gradStartColor: #318bff;
-	borderColor: #97f1ff;
 	gradEndColor: #318bff;
+	borderColor: #97f1ff;
 	borderThickness: 0;
+	gradStartColor: #318bff;
 }
 
 ZArrow
 {
-	gradStartColor: #333;
-	borderColor: #7f7f7f;
 	gradEndColor: #333;
+	borderColor: #7f7f7f;
 	borderThickness: 0;
+	gradStartColor: #333;
 }
 
 .line3
 {
+	gradEndColor: #333;
 	color: #333;
 	gradStartColor: #333;
-	gradEndColor: #333;
 }
 
 .poly3
 {
-	gradStartColor: #318bff;
-	borderColor: #318bff;
 	gradEndColor: #318bff;
+	borderColor: #318bff;
 	borderThickness: 0;
+	gradStartColor: #318bff;
 }
 
 ZLine
@@ -810,26 +818,26 @@ Grid
 
 ZPath
 {
-	thickness: 3;
-	color: #40abe6;
 	alpha: 1;
+	color: #40abe6;
+	thickness: 3;
 	textColor: #fff;
 }
 
 ZPath Ball.mid
 {
-	fillColor: #40abe6;
 	alpha: .5;
+	fillColor: #40abe6;
 	radius: 8;
 }
 
 ZPath Ball.base
 {
-	fillColor: #40abe6;
 	alpha: 1;
+	fillColor: #40abe6;
 	radius: 12;
 }
 
 ]]></style>
-  <hash>6d2f3a8d03c8f4d10c89180b336b3da7</hash>
-<sync><oid>vdw7upwwwfgk</oid><hash>6d2f3a8d03c8f4d10c89180b336b3da7</hash></sync><config>d6b7bcaxxyHqpHKLpkKWuZTeFfPOc0Gl3aaxBL3abBuLDMSg4vIsLi10kMgcYIGdvnWzWRhqODZTyoyy4pkJUKPN7dBle3XvLkb/P+vRwi2S9bX28JQUHZyaaXVpPmQphof4WBtGEkOt+LVj8yIpN0I7qRZQKZ7QOLpIxp5LyuTIxYsdzAajOyO5SN5uGDiWhgOA0eLZXvingJeoIUY6kfPb94EnfwrLF65djrfUQCNPKiHxMILDXhxtqFO12jC11FazGowlMF3f5S7KOzVUapXN6kSjSzle8Fd1PNuNBowByoHJJPHQK8EG9WvNersD5vTGyPwqpKkc4lTSnySWDg==</config></zuiprezi>
+  <hash>11dcc9f8c3055e586100ecfa0f5470f0</hash>
+<sync><oid>vdw7upwwwfgk</oid><hash>11dcc9f8c3055e586100ecfa0f5470f0</hash></sync><config>VTIAkNTod4H1iM7n+LAv3TYR8MDhFEMMUqIdABZavJmcebqGHSklV6XKXXCGGQfKKbRQRk8OC3iG3k4avxqeMuZtge8JQ5Les2CFF08XcKlqr3/VmukYGztifTOjHAQ1kjKYqRXu0/fpsOW1aJFIMqDbnVp0WnpUkMfUuuqfUoIf7+YDA5ENeEddvLThXSWFGjQ8VLe0j9zsW3UXSnVRDKjptozhkry4ynaVqrUtyRO65xEpOTyY4UmYg70tHWE5MDyo1IDTtBnp+5p6XLC35mEHwPFDOreKIqHYSC4NBfKLtxZVcH2j4ZZ0IUfQ7BoQ1wtPzM1+U9s6cn8nuhQX4w==</config></zuiprezi>
