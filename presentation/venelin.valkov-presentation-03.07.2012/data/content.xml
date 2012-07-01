@@ -1,0 +1,835 @@
+<zuiprezi>
+  <version>4</version>
+  <zui-table>
+    <settings>
+      
+      <autoplay>
+        
+        <delay>4000</delay>
+        
+      </autoplay>
+      
+      <bounds x="-218281.26509666574" y="-144342.36026288217" width="436562.53019333153" height="288684.72052576434"/>
+      <aspectratio>off</aspectratio>
+    </settings>
+    <object id="0_4304283" type="button" x="89000.84520045445" y="78344.48364610797" r="5.02530459015662" s="93.54009420833306" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>798.9815404201146</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="39" type="button" x="-70010.98346320796" y="86004.33534020913" r="-5.251910250646786" s="193.9414073429312" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>365.85</w>
+        <h>280.65</h>
+      </size>
+    </object>
+    <object id="41" type="image" x="-70838.28361890679" y="94369.52789733734" r="-5.251909982053429" s="55.49157414841366">
+      <source w="614" h="454">186945542.jpg<url>186945542.jpg</url>
+      </source>
+      <sourceUrl>plovdiv-map.jpg</sourceUrl>
+    <resource><id>
+        186945542
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/9/2/3bed6bc93b5f8fdfe826c5662ce235db46468.jpg</url></resource></object>
+    <object id="190" type="label" x="89328.8" y="74592.4" r="5.025320233558636" s="401.1437386270311" class="strong">
+      <textfield>
+        <x>-98</x>
+        <y>-17.5</y>
+        <text><![CDATA[Благодаря Ви!]]></text>
+        <w>196</w>
+        <h>35</h>
+        <annotations>r0-13 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="286" type="label" x="16876.3" y="1863.95" r="0" s="970.5549926757813" class="strong">
+      <textfield>
+        <x>-68.15</x>
+        <y>-17.5</y>
+        <text><![CDATA[Съдържание]]></text>
+        <annotations>r0-10 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="5_4907323" type="button" x="-116857.4801062049" y="10258.324025119431" r="-5.251910250646786" s="193.9414073429312" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>365.85</w>
+        <h>280.65</h>
+      </size>
+    </object>
+    <object id="334" type="label" x="117724.82864807072" y="109729.03228977422" r="0" s="101.59464409603758" class="body">
+      <textfield>
+        <x>-266.5</x>
+        <y>-17.5</y>
+        <text><![CDATA[Photo based on: 'horizon' by pierreyves @ flickr]]></text>
+        <w>533.05</w>
+        <h>35</h>
+        <annotations>r0-48 { color: #fff; }
+r0-48 { align: right; }</annotations>
+      </textfield>
+    </object>
+    <object id="0_4907323" type="button" x="-88514.68472953123" y="-69393.02339607992" r="-5.25191574280906" s="138.52968258861807" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>667.75</w>
+        <h>425.8</h>
+      </size>
+    </object>
+    <object id="10" type="image" x="-133043.5" y="14210.15" r="-5.251907255288534" s="58.79516895213184">
+      <source w="465" h="308">186942653.jpg<url>186942653.jpg</url>
+      </source>
+      <sourceUrl>rage-driver.jpg</sourceUrl>
+    <resource><id>
+        186942653
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/2/e/0/3dd8e51b94f3521e4ddb418f581520e3da3ab.jpg</url></resource></object>
+    <object id="2" type="label" x="-86962.72043319703" y="-76004.49794756336" r="-5.251915338757476" s="261.35795266010376" class="strong">
+      <textfield>
+        <x>-115.4</x>
+        <y>-64</y>
+        <text><![CDATA[Оптимизиране на
+транспортната мрежа в град Пловдив]]></text>
+        <w>230.85</w>
+        <h>128</h>
+        <annotations>r0-16 { align: center; }
+r16-50 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="1" type="label" x="87445.3" y="89341.8" r="5.025321488403458" s="101.56486063918591" class="body">
+      <textfield>
+        <x>-129.6</x>
+        <y>-17.5</y>
+        <text><![CDATA[Информация за проекта]]></text>
+        <annotations>r0-21 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="1_4907323" type="label" x="-107399.25" y="-51026.6" r="-5.251915571109248" s="69.25081470937778" class="body">
+      <textfield>
+        <x>-86.95</x>
+        <y>-17.5</y>
+        <text><![CDATA[Венелин Вълков]]></text>
+        <annotations>r0-14 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="6" type="label" x="-66079" y="-55151.45" r="-5.251914903174683" s="59.3379757885055" class="body">
+      <textfield>
+        <x>-98.3</x>
+        <y>-17.5</y>
+        <text><![CDATA[гл. ас. Ангел Голев]]></text>
+        <annotations>r0-19 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="7" type="label" x="-110168.5" y="-53520.6" r="-5.251914903174683" s="59.3379757885055" class="body">
+      <textfield>
+        <x>-58.8</x>
+        <y>-17.5</y>
+        <text><![CDATA[дипломант]]></text>
+        <annotations>r0-9 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="8" type="label" x="-65697.3" y="-57608.6" r="-5.251914903174683" s="59.3379757885055" class="body">
+      <textfield>
+        <x>-108.5</x>
+        <y>-17.5</y>
+        <text><![CDATA[научен ръководител]]></text>
+        <annotations>r0-18 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="9" type="label" x="88078.6" y="95006.8" r="5.027919939356746" s="170.23682454952845" class="body">
+      <textfield>
+        <x>-172.65</x>
+        <y>-17.5</y>
+        <text><![CDATA[https://github.com/venelin/thesis]]></text>
+        <annotations>r0-33 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="11" type="image" x="-99769.27077017674" y="11143.291657948164" r="-5.251907353480332" s="42.73133671569217">
+      <source w="640" h="421">186942702.jpg<url>186942702.jpg</url>
+      </source>
+      <sourceUrl>calm-driver.jpg</sourceUrl>
+    <resource><id>
+        186942702
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/2/2/89e5178bb90b93c3014395b9db6e16fe43ab1.jpg</url></resource></object>
+    <object id="7_4907323" type="label" x="-116005.15" y="-5236.45" r="-5.251909986232422" s="274.2529100138712" class="strong">
+      <textfield>
+        <x>-87.55</x>
+        <y>-33</y>
+        <text><![CDATA[Когато порасна ще стана...]]></text>
+        <w>175.1</w>
+        <h>66</h>
+        <annotations>r0-26 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="14" type="label" x="-137334.45" y="29433.25" r="-5.2519097463343725" s="60.567425621519334" class="body">
+      <textfield>
+        <x>-57.05</x>
+        <y>-17.5</y>
+        <text><![CDATA[източници]]></text>
+        <annotations>r0-9 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="15" type="label" x="-126503.05" y="30126.1" r="-5.2519098678339295" s="43.262450711726046" class="body">
+      <textfield>
+        <x>-329.15</x>
+        <y>-17.5</y>
+        <text><![CDATA[http://drnemerovski.files.wordpress.com/2011/06/roadrage5.jpg]]></text>
+        <annotations>r0-61 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="16" type="label" x="-125959.8" y="31474.3" r="-5.251915778980259" s="43.24907404038736" class="body">
+      <textfield>
+        <x>-340.3</x>
+        <y>-17.5</y>
+        <text><![CDATA[http://farm7.staticflickr.com/6219/6269096636_36fdd94876_z.jpg]]></text>
+        <annotations>r0-62 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="35" type="label" x="-116235.25" y="12669.6" r="-5.251911073494755" s="319.13404561224536" class="strong">
+      <textfield>
+        <x>-7.4</x>
+        <y>-17.5</y>
+        <text><![CDATA[||]]></text>
+        <annotations>r0-2 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="36" type="button" x="-143133.6468196328" y="15199.035978955277" r="-5.251909611640909" s="0.16515504719641888" class="circle">
+      <type>circle</type>
+      <size>
+        <w>800</w>
+        <h>800</h>
+      </size>
+    </object>
+    <object id="37" type="label" x="-143132.1" y="15198.1" r="-5.251916023847767" s="0.38933096773006737" class="strong">
+      <textfield>
+        <x>-108.65</x>
+        <y>-17.5</y>
+        <text><![CDATA[Какъв е проблемът?]]></text>
+        <annotations>r0-18 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="40" type="label" x="-72654.69920097353" y="70942.34895180188" r="-5.2519128990366495" s="195.83527364911404" class="strong">
+      <textfield>
+        <x>-109.75</x>
+        <y>-48.5</y>
+        <text><![CDATA[Как да стигна от
+ФМИ до Тракия 
+за 10 мин?]]></text>
+        <w>219.5</w>
+        <h>97</h>
+        <annotations>r0-17 { align: center; }
+r17-32 { align: center; }
+r32-42 { align: center; }</annotations>
+      </textfield>
+    </object>
+    <object id="42" type="marker" x="-67823.33006125722" y="89906.23558614659" r="-5.25193028991206" s="32.29234440016212">
+      <width>78.1</width>
+      <height>200.8</height>
+      <offsetx>-3417.8500000000004</offsetx>
+      <offsety>2401.2999999999997</offsety>
+      <p x="-3449.4" y="2494.2"/>
+      <p x="-3442.35" y="2478.5"/>
+      <p x="-3436.35" y="2457.5"/>
+      <p x="-3433.3" y="2431.5"/>
+      <p x="-3429.3" y="2405.45"/>
+      <p x="-3427.3" y="2382.45"/>
+      <p x="-3421.35" y="2354.45"/>
+      <p x="-3407.35" y="2331.4"/>
+      <p x="-3389.3" y="2311.4"/>
+      <p x="-3386.3" y="2308.4"/>
+    </object>
+    <object id="43" type="shape" x="-72650.5" y="92197.15" r="20.794858330761222" s="46.711687932687525" class="line3">
+      <geom type="arrow">
+        <sp>-280.57092797544084 0</sp>
+        <ep>280.57092797544084 0</ep>
+        <t>8</t>
+      </geom>
+    </object>
+    <object id="44" type="label" x="-81239.8" y="110320.05" r="-5.25191108767245" s="48.63773909652756" class="body">
+      <textfield>
+        <x>-80.2</x>
+        <y>-17.5</y>
+        <text><![CDATA[източник: баба]]></text>
+        <annotations>r0-14 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="45" type="button" x="83917.53130603234" y="-78820.22658898906" r="5.509398625001576" s="193.87821337059376" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>365.85</w>
+        <h>280.65</h>
+      </size>
+    </object>
+    <object id="46" type="label" x="85081.1" y="-94005.9" r="5.509398653632347" s="186.84274127370495" class="strong">
+      <textfield>
+        <x>-127.5</x>
+        <y>-17.5</y>
+        <text><![CDATA[Решението трябва да е:]]></text>
+        <annotations>r0-22 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="47" type="label" x="82510.85" y="-75488" r="5.509397090597995" s="186.78583728940856" class="body">
+      <textfield>
+        <x>-127.25</x>
+        <y>-48.5</y>
+        <text><![CDATA[Евтино
+Устойчиво
+Лесно за поддръжка]]></text>
+        <annotations>r0-7 { bullet: true; }
+r0-7 { align: left; }
+r0-7 { blockIndent: 36; }
+r7-17 { bullet: true; }
+r7-17 { align: left; }
+r7-17 { blockIndent: 36; }
+r17-35 { bullet: true; }
+r17-35 { align: left; }
+r17-35 { blockIndent: 36; }</annotations>
+      </textfield>
+    </object>
+    <object id="48" type="button" x="107681.3" y="-58078.3" r="5.509399232603446" s="18.39215894590294" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>365.85</w>
+        <h>280.65</h>
+      </size>
+    </object>
+    <object id="49" type="label" x="107992.15" y="-59715.5" r="5.509398877781596" s="22.888234281705124" class="strong">
+      <textfield>
+        <x>-47.2</x>
+        <y>-17.5</y>
+        <text><![CDATA[Приноси]]></text>
+        <annotations>r0-7 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="50" type="label" x="107551.9" y="-57854.05" r="5.509398653632349" s="11.677671329606559" class="body">
+      <textfield>
+        <x>-246.8</x>
+        <y>-95</y>
+        <text><![CDATA[Проучване на съществуващи ИТС
+Проучване на съществуващ симулационен софтуер
+Създаване на прототип - симулационна среда за експериментиране
+Експерименти]]></text>
+        <w>493.6</w>
+        <h>190</h>
+        <annotations>r0-30 { bullet: true; }
+r0-30 { align: left; }
+r0-30 { blockIndent: 36; }
+r30-76 { bullet: true; }
+r30-76 { align: left; }
+r30-76 { blockIndent: 36; }
+r76-139 { bullet: true; }
+r76-139 { align: left; }
+r76-139 { blockIndent: 36; }
+r139-151 { bullet: true; }
+r139-151 { align: left; }
+r139-151 { blockIndent: 36; }</annotations>
+      </textfield>
+    </object>
+    <object id="51" type="button" x="3.1998941415758937e-11" y="0" r="0" s="436.4752351463023">
+      <type>invisible</type>
+      <size>
+        <w>967.7629912663756</w>
+        <h>628.9499999999999</h>
+      </size>
+    </object>
+    <object id="0_16030118" type="button" x="109856.15" y="-56140.3" r="5.509398523300885" s="0.765921904068282" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>859.7938144329897</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="1_16030118" type="label" x="109874.85" y="-56289.45" r="5.50939879634706" s="2.0408163875624092" class="strong">
+      <textfield>
+        <x>-94.75</x>
+        <y>-17.5</y>
+        <text><![CDATA[Бъдещо развитие]]></text>
+        <annotations>r0-15 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="2_16030118" type="label" x="109843.95" y="-56120.5" r="5.509398764028752" s="1.4285714951684705" class="body">
+      <textfield>
+        <x>-207.45</x>
+        <y>-79.5</y>
+        <text><![CDATA[Добавяне на нови модели
+Добавяне на нови стратегии
+Извличане на нови статистики
+Провеждане на нови експерименти
+Паралелна обработка]]></text>
+        <annotations>r0-24 { bullet: true; }
+r0-24 { align: left; }
+r0-24 { blockIndent: 36; }
+r24-51 { bullet: true; }
+r24-51 { align: left; }
+r24-51 { blockIndent: 36; }
+r51-80 { bullet: true; }
+r51-80 { align: left; }
+r51-80 { blockIndent: 36; }
+r80-112 { bullet: true; }
+r80-112 { align: left; }
+r80-112 { blockIndent: 36; }
+r112-131 { bullet: true; }
+r112-131 { align: left; }
+r112-131 { blockIndent: 36; }</annotations>
+      </textfield>
+    </object>
+    <object id="0_16032805" type="button" x="59891.55" y="-63988.95" r="5.509399100861176" s="8.441022662994303" class="bracket">
+      <type>bracket</type>
+      <size>
+        <w>852.45</w>
+        <h>681.3</h>
+      </size>
+    </object>
+    <object id="2_16032805" type="image" x="59930.65" y="-64445.45" r="5.504061027859167" s="2.284801736287859">
+      <source w="1024" h="768">187092374.jpg<url>187092374.jpg</url>
+      </source>
+      <sourceUrl>1.simulation.jpg</sourceUrl>
+    <resource><id>
+        187092374
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/a/b/e/94a35bc601a7797a9473a543cb8f0404e4dfa.jpg</url></resource></object>
+    <object id="3_16032805" type="image" x="59752.45" y="-62544.65" r="5.504133033593706" s="2.2823569626860043">
+      <source w="1031" h="775">187092403.png<url>187092403.png</url>
+      </source>
+      <sourceUrl>2.result.png</sourceUrl>
+    <resource><id>
+        187092403
+        </id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/a/0/4/4ea2d5bc45eb99f84be4a98873aa70e219889.png</url></resource></object>
+    <object id="1_16032805" type="label" x="60089.2" y="-66098.6" r="5.504086473876471" s="31.339962375651986" class="strong">
+      <textfield>
+        <x>-51.85</x>
+        <y>-17.5</y>
+        <text><![CDATA[Прототип]]></text>
+        <annotations>r0-8 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="0_16034113" type="label" x="57896.95" y="-64641.85" r="5.504093415758497" s="31.339962741545566" class="head">
+      <textfield>
+        <x>-7</x>
+        <y>-15.85</y>
+        <text><![CDATA[1]]></text>
+        <annotations>r0-1 { color: #322c69; }
+r0-1 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="1_16034113" type="label" x="57713.85" y="-62742.1" r="5.503225962526701" s="31.329891565960313" class="head">
+      <textfield>
+        <x>-7</x>
+        <y>-15.85</y>
+        <text><![CDATA[2]]></text>
+        <annotations>r0-1 { color: #322c69; }
+r0-1 { align: left; }</annotations>
+      </textfield>
+    </object>
+    <object id="3_16034113" type="button" x="59753.15" y="-62557" r="5.504136844555892" s="3.8154281917236634">
+      <type>invisible</type>
+      <size>
+        <w>622.675982532751</w>
+        <h>464.6999999999998</h>
+      </size>
+    </object>
+  </zui-table>
+  <path>
+    <o>0_4907323</o>
+    <o>51</o>
+    <o>5_4907323</o>
+    <o>36</o>
+    <o>39</o>
+    <o>45</o>
+    <o>0_16032805</o>
+    <o>3_16034113</o>
+    <o>48</o>
+    <o>0_16030118</o>
+    <o>0_4304283</o>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('PTSans.swf');
+	fontFamily: body;
+}
+
+@font-face
+{
+	src: url('YanoneKaffeesatz.swf');
+	fontFamily: head;
+}
+
+@font-face
+{
+	src: url('PTSans-B.swf');
+	fontFamily: strong;
+}
+
+background
+{
+	gradEnd: #808080;
+	gradStart: #808080;
+}
+
+text
+{
+	padding: 1.2;
+}
+
+text.title
+{
+	color: #fff808;
+	fontFamily: head;
+}
+
+text.subtitle
+{
+	color: #fff;
+	fontFamily: strong;
+}
+
+text.body
+{
+	color: #fff;
+	fontFamily: body;
+}
+
+frame.circle
+{
+	gradStartColor: #333;
+	borderColor: #999;
+	gradEndColor: #333;
+	borderThickness: 0;
+}
+
+frame.bracket
+{
+	thickness: 7;
+	gradStartColor: #fff;
+	borderColor: #fff;
+	gradEndColor: #c5c3c3;
+	borderThickness: 0;
+}
+
+frame.rectangle
+{
+	gradStartColor: #000;
+	borderColor: #fff;
+	gradEndColor: #000;
+	borderThickness: 0;
+	radius: 0;
+}
+
+arrow
+{
+	gradStartColor: #fff808;
+	borderColor: #fff;
+	gradEndColor: #fff808;
+	borderThickness: -1;
+}
+
+line
+{
+	color: #fff808;
+}
+
+line-arrow.style1
+{
+	color: #fff;
+	gradStartColor: #fff;
+	gradEndColor: #fff;
+}
+
+line-arrow.style2
+{
+	color: #c5c3c3;
+	gradStartColor: #c5c3c3;
+	gradEndColor: #c5c3c3;
+}
+
+line-arrow.style3
+{
+	color: #fff808;
+	gradStartColor: #fff808;
+	gradEndColor: #fff808;
+}
+
+line-arrow.style4
+{
+	color: #333;
+	gradStartColor: #333;
+	gradEndColor: #333;
+}
+
+line-arrow.style5
+{
+	color: #000;
+	gradStartColor: #000;
+	gradEndColor: #000;
+}
+
+circle
+{
+	thickness: 100;
+	lockTintAlpha: 0.6;
+	borderAlpha: 1;
+	radius: 0;
+}
+
+shape
+{
+	lockTintAlpha: 0.6;
+	gradEndAlpha: 0.8;
+	borderAlpha: 1;
+	radius: 0;
+	thickness: 100;
+	gradStartAlpha: 0.7;
+}
+
+shape.style1
+{
+	gradStartColor: #fff;
+	borderColor: #fff;
+	gradEndColor: #fff;
+	borderThickness: 0;
+}
+
+shape.style2
+{
+	gradStartColor: #c5c3c3;
+	borderColor: #c5c3c3;
+	gradEndColor: #c5c3c3;
+	borderThickness: 0;
+}
+
+shape.style3
+{
+	gradStartColor: #fff808;
+	borderColor: #fff808;
+	gradEndColor: #fff808;
+	borderThickness: 0;
+}
+
+shape.style4
+{
+	gradStartColor: #333;
+	borderColor: #333;
+	gradEndColor: #333;
+	borderThickness: 0;
+}
+
+shape.style5
+{
+	gradStartColor: #000;
+	borderColor: #000;
+	gradEndColor: #000;
+	borderThickness: 0;
+}
+
+free-line
+{
+	color: #fff808;
+}
+
+free-marker
+{
+	color: #ffff0d;
+	alpha: 0.3;
+}
+
+grid
+{
+	color: #ddd;
+}
+
+ZCircle
+{
+	thickness: 100;
+	lockTintAlpha: 0.6;
+	borderAlpha: 1;
+	radius: 0;
+}
+
+ZPoly
+{
+	lockTintAlpha: 0.6;
+	gradEndAlpha: 0.9;
+	borderAlpha: 1;
+	radius: 0;
+	thickness: 100;
+	gradStartAlpha: 0.8;
+}
+
+Background
+{
+	gradEnd: #fff;
+	gradStart: #fff;
+}
+
+ZLabel
+{
+	padding: 1.2;
+}
+
+ZLabel.head
+{
+	color: #000;
+	fontFamily: head;
+}
+
+.line5
+{
+	color: #194a99;
+	gradStartColor: #194a99;
+	gradEndColor: #194a99;
+}
+
+.poly5
+{
+	gradStartColor: #333;
+	borderColor: #333;
+	gradEndColor: #333;
+	borderThickness: 0;
+}
+
+ZLabel.strong
+{
+	color: #194a99;
+	fontFamily: strong;
+}
+
+.line1
+{
+	color: #194a99;
+	gradStartColor: #194a99;
+	gradEndColor: #194a99;
+}
+
+.poly1
+{
+	borderColor: #194a99;
+}
+
+ZLabel.body
+{
+	color: #333;
+	fontFamily: body;
+}
+
+ZFrame.circle
+{
+	gradStartColor: #194a99;
+	borderColor: #fff;
+	gradEndColor: #194a99;
+	borderThickness: 0;
+}
+
+.line4
+{
+	color: #318bff;
+	gradStartColor: #318bff;
+	gradEndColor: #318bff;
+}
+
+.poly4
+{
+	gradStartColor: #194a99;
+	borderColor: #194a99;
+	gradEndColor: #194a99;
+	borderThickness: 0;
+}
+
+ZFrame.bracket
+{
+	gradStartColor: #318bff;
+	borderColor: #fff;
+	gradEndColor: #318bff;
+	borderThickness: 0;
+}
+
+.line2
+{
+	color: #7a8082;
+	gradStartColor: #7a8082;
+	gradEndColor: #7a8082;
+}
+
+.poly2
+{
+	gradStartColor: #7a8082;
+	borderColor: #7a8082;
+	gradEndColor: #7a8082;
+	borderThickness: 0;
+}
+
+ZFrame.roundrect
+{
+	gradStartColor: #318bff;
+	borderColor: #97f1ff;
+	gradEndColor: #318bff;
+	borderThickness: 0;
+}
+
+ZArrow
+{
+	gradStartColor: #333;
+	borderColor: #7f7f7f;
+	gradEndColor: #333;
+	borderThickness: 0;
+}
+
+.line3
+{
+	color: #333;
+	gradStartColor: #333;
+	gradEndColor: #333;
+}
+
+.poly3
+{
+	gradStartColor: #318bff;
+	borderColor: #318bff;
+	gradEndColor: #318bff;
+	borderThickness: 0;
+}
+
+ZLine
+{
+	color: #333;
+}
+
+ZCurveLine
+{
+	color: #333;
+}
+
+ZMarker
+{
+	color: #00e1ff;
+	alpha: 0.3;
+}
+
+Grid
+{
+	color: #ccc;
+}
+
+ZPath
+{
+	thickness: 3;
+	color: #40abe6;
+	alpha: 1;
+	textColor: #fff;
+}
+
+ZPath Ball.mid
+{
+	fillColor: #40abe6;
+	alpha: .5;
+	radius: 8;
+}
+
+ZPath Ball.base
+{
+	fillColor: #40abe6;
+	alpha: 1;
+	radius: 12;
+}
+
+]]></style>
+  <hash>6d2f3a8d03c8f4d10c89180b336b3da7</hash>
+<sync><oid>vdw7upwwwfgk</oid><hash>6d2f3a8d03c8f4d10c89180b336b3da7</hash></sync><config>d6b7bcaxxyHqpHKLpkKWuZTeFfPOc0Gl3aaxBL3abBuLDMSg4vIsLi10kMgcYIGdvnWzWRhqODZTyoyy4pkJUKPN7dBle3XvLkb/P+vRwi2S9bX28JQUHZyaaXVpPmQphof4WBtGEkOt+LVj8yIpN0I7qRZQKZ7QOLpIxp5LyuTIxYsdzAajOyO5SN5uGDiWhgOA0eLZXvingJeoIUY6kfPb94EnfwrLF65djrfUQCNPKiHxMILDXhxtqFO12jC11FazGowlMF3f5S7KOzVUapXN6kSjSzle8Fd1PNuNBowByoHJJPHQK8EG9WvNersD5vTGyPwqpKkc4lTSnySWDg==</config></zuiprezi>
